@@ -1,0 +1,55 @@
+/* src/global.css */
+
+:root {
+    /* Primary Colours */
+    --primary-colour: black;
+    --background-colour: white;
+    --light-grey-solid: #ECF0F1;
+    
+    /* Colours with transparency */
+    --light-grey: rgba(255, 255, 255, 0.2);
+}
+
+/* for debugging
+* {
+    border: 1px solid red !important;
+}*/
+
+/* Ensure the html and body elements take up full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--primary-colour);
+    background-color: var(--background-colour);
+    font-size: calc(15px + 0.390625vw);
+    overflow-x: hidden;
+}
+
+/* Flex container to properly align header, content and footer sections to the top, middle and bottom of the page */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+/* Allow main content to grow and shrink taking up any available space */
+main {
+    flex: 1;
+}
+
+/* Header and footer need a static height */
+header, footer {
+    flex-shrink: 0;
+}
+
+/* Mobile view */
+@media (max-width: 768px) { }
+
+/* Medium Displays */
+@media (max-width: 1200px) { }
