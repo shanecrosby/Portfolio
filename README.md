@@ -19,7 +19,12 @@ npx create-gatsby
 
 ## Node Packages
 The following additional node packages have been included in this site:
+* gatsby-plugin-image
+* gatsby-plugin-google-fonts
+* gatsby-plugin-manifest - Lets users add the site to home screen on mobile
+* gatsby-source-sanity - Plugs into Sanity.io which is a headless CMS for storing data instead of using local json files.
 * Font Awesome: (@fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons)
+* gh-pages ```npm install gh-pages --save-dev``` to allow automated publishing to GitHub pages.
 
 ## Things Learnt
 * 

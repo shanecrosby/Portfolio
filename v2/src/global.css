@@ -8,6 +8,9 @@
     
     /* Colours with transparency */
     --light-grey: rgba(255, 255, 255, 0.2);
+
+    --_heading-font: 'Kanit';
+    --_body-font: 'Montserrat';
 }
 
 /* for debugging
