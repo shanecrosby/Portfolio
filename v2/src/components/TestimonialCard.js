@@ -4,10 +4,10 @@ import React from 'react';
 const TestimonialCardComponent = ({ testimonial }) => {
 
     return (
-        <div className="home-card">
-            <h3>{testimonial.name}</h3>
-            <p>{testimonial.website}</p>
-            <p>{testimonial.content}</p>
+        <div className="testimonial-card">
+            <h2 className='testimonial-name'>{testimonial.name}</h2>
+            <p className='testimonial-url'>{testimonial.website}</p>
+            <p className='testimonial-text'>{testimonial.content}</p>
         </div>
     );
 };

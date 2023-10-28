@@ -51,7 +51,8 @@ const IndexPage = () => {
                         <p className="body-text">
                             These are some nice things people have said about me.
                         </p>
-                        {data.allSanityTestimonial.nodes.map(card => {
+                        {data.allSanityTestimonial.edges.map(edge => {
+                            const card = edge.node;
                             return <TestimonialCardComponent key={card.id} testimonial={card} />;
                         })}
                     </div>
