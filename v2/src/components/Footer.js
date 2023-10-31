@@ -23,11 +23,11 @@ const Footer = () => {
                     
                         {/* Social Buttons: */}
                             <ul className='social-icons'>
-                                <a href="https://facebook.com/crosbyshane"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
-                                <a href="https://twitter.com/crosbyshane"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
-                                <a href="https://instagram.com/crosbyshane"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
-                                <a href="https://www.youtube.com/planeshavewings"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
-                                <a href="tel:+61407472944" title="+61407472944"><li><FontAwesomeIcon icon={faPhone} /></li></a>
+                                <a href="https://facebook.com/crosbyshane" aria-label="Facebook"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
+                                <a href="https://twitter.com/crosbyshane" aria-label="Twitter"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
+                                <a href="https://instagram.com/crosbyshane" aria-label="Instagram"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
+                                <a href="https://www.youtube.com/planeshavewings" aria-label="Youtube"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
+                                <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone"><li><FontAwesomeIcon icon={faPhone} /></li></a>
                             </ul>
                     </div>
                 </div>
