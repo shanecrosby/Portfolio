@@ -1,5 +1,6 @@
 // src/components/TestimonialCard.js
 import React from 'react';
+import './css/testimonialcard.css';
 
 const TestimonialCardComponent = ({ testimonial }) => {
 
@@ -7,7 +8,7 @@ const TestimonialCardComponent = ({ testimonial }) => {
         <div className="testimonial-card">
             <h2 className='testimonial-name'>{testimonial.name}</h2>
             <p className='testimonial-url'>{testimonial.website}</p>
-            <p className='testimonial-text'>{testimonial.content}</p>
+            <p className='testimonial-text'>"{testimonial.content}"</p>
         </div>
     );
 };
