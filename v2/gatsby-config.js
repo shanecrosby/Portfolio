@@ -10,7 +10,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Shane Crosby - Web Developer`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.shanecrosby.com`,
   },
   plugins: [
     "gatsby-plugin-image",
@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        "fonts": ['Montserrat','Kanit'],
+        "fonts": [`Montserrat`,`Kanit`],
         "display": 'swap'
       }
     },
