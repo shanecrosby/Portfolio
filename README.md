@@ -44,6 +44,7 @@ The following additional node packages have been included in this site:
     }
 ```
 * GraphQL queries use slightly different syntax when sourcing from Sanity.io vs JSON files
+* When making changes to the local sanity schema, you need to redeploy for GraphQL using ```sanity graphql deploy```
 
 __Sanity__
 ```query {
@@ -72,3 +73,8 @@ __JSON__
 ```
 
 ## Site Asset Credits:
+Code image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839406">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839406">Pixabay</a>
+
+iMac image by <a href="https://pixabay.com/users/firmbee-663163/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=606761">Firmbee</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=606761">Pixabay</a>
+
+Stars background image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2179083">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2179083">Pixabay</a>
