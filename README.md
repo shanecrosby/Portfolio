@@ -71,6 +71,7 @@ __JSON__
             }
         }
 ```
+* If presented with a warning that "A control must be associated with a text label", don't forget to add "aria-label='something'" to the offending element.
 
 ## Site Asset Credits:
 Code image by <a href="https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839406">Pexels</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1839406">Pixabay</a>
