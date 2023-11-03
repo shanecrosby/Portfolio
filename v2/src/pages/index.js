@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb, faBars, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "gatsby"
 
 // components
@@ -14,20 +14,73 @@ import SiteCardComponent from '../components/sitecard';
 import QuoteCardComponent from '../components/QuoteCard';
 
 const IndexPage = () => {
+    /* Handle the light/dark mode switching */
     const [darkMode, setDarkMode] = useState(true);
-
     useEffect(() => {
         document.body.classList.toggle('dark-mode', darkMode);
         document.body.classList.toggle('light-mode', !darkMode);
     }, [darkMode]);
-
     const changeMode = () => setDarkMode(prevMode => !prevMode);
 
+    /* Hanlde the main menu pop-out */
     const [isOpen, setIsOpen] = useState(false);
-    
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
+
+    /* Handle the page scroll up/down */
+    const [currentSection, setCurrentSection] = useState(0);
+
+    const handleScroll = (direction) => {
+        const sections = document.querySelectorAll('section');
+        const currentSectionElement = sections[currentSection];
+        let targetSection;
+        if (direction === 'down') {
+            targetSection = currentSectionElement.nextElementSibling;
+        } else {
+            targetSection = currentSectionElement.previousElementSibling;
+        }
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    useEffect(() => {
+        const updateSectionIndex = () => {
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                        setCurrentSection(index);
+                    }
+                });
+                const scrollUpButton = document.getElementById('scrollup-button');
+                const scrollDnButton = document.getElementById('scrolldn-button');
+
+                if (window.scrollY === 0) {
+                    scrollUpButton.classList.add('hidden');
+                } else {
+                    scrollUpButton.classList.remove('hidden');
+                }
+
+                if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+                    scrollDnButton.classList.add('hidden');
+                } else {
+                    scrollDnButton.classList.remove('hidden');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateSectionIndex);
+
+        return () => {
+            window.removeEventListener('scroll', updateSectionIndex);
+        };
+    }, []);  // Empty array means this useEffect runs once, similar to componentDidMount
 
     const data = useStaticQuery(graphql`
     query {
@@ -89,14 +142,34 @@ const IndexPage = () => {
         <div id="page-container">
             <header>
                 <div className="page-controls">
-                    <div className="control-button" 
-                        onClick={changeMode}
+                    <div className="mode-button">
+                        <div className="control-button" 
+                            onClick={changeMode}
+                            onKeyDown={(e) => {
+                                if (e.key === 'm') {
+                                    changeMode();
+                                }
+                            }} role="button" tabIndex="-1" aria-label="Switch Light/Dark Mode">
+                            <FontAwesomeIcon icon={faLightbulb} />
+                        </div>
+                    </div>
+                    <div id='scrollup-button' className='hidden' 
+                        onClick={() => handleScroll('up')}
                         onKeyDown={(e) => {
-                            if (e.key === 'm') {
+                            if (e.key === 'up') {
                                 changeMode();
                             }
-                        }} role="button" tabIndex="-1">
-                        <FontAwesomeIcon icon={faLightbulb} />
+                        }} role="button" tabIndex="-1" aria-label="Scroll up">
+                        <div className="control-button"><FontAwesomeIcon icon={faArrowUp} /></div>
+                    </div>
+                    <div id='scrolldn-button' 
+                        onClick={() => handleScroll('down')}
+                        onKeyDown={(e) => {
+                            if (e.key === 'down') {
+                                changeMode();
+                            }
+                        }} role="button" tabIndex="-1" aria-label="Scroll down">
+                        <div className="control-button"><FontAwesomeIcon icon={faArrowDown} /></div>
                     </div>
                 </div>
                 <div className='nav-container' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu} onTouchEnd={toggleMenu}
