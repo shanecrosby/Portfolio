@@ -33,6 +33,10 @@
     border: 1px solid red !important;
 }*/
 
+html {
+    /*scroll-behavior: smooth;*/
+}
+
 /* Ensure the html and body elements take up full height of the viewport */
 body {
     height: 100%;
@@ -75,6 +79,10 @@ a, a:visited {
     text-align: center;
 }
 
+.body-heading {
+    font-size: calc(50px + 0.390625vw);
+}
+
 /* Mode-specific color assignment */
 .dark-mode {
     --primary-colour: var(--dm_primary-colour);
@@ -112,7 +120,6 @@ body, a, li, li > a, .control-button {
 
 /* Common Styles */
 body {
-    background-color: var(--background-colour);
     scrollbar-width: 5px;
     scrollbar-gutter: stable;
     scrollbar-base-color: var(--background-colour);
@@ -122,6 +129,7 @@ body {
 body, li {
     color: var(--primary-colour);
     border-color: var(--primary-colour);
+    background-color: var(--background-colour);
 }
 
     /* Let's style the scrollbar */
@@ -138,10 +146,6 @@ body, li {
         background-color: var(--primary-colour);
         transition: background-color var(--_transition-time);
     }
-
-main {
-    margin-top: -6rem;
-}
 
 .menu > a:hover li, .menu > a:hover {
     background-color: var(--primary-colour);
@@ -192,107 +196,6 @@ a:hover {
     grid-auto-columns: auto auto;
 }
 
-#hero {
-    width: auto;
-    position: relative;
-    height: 100vh;
-}
-
-.hero-bgImage {
-    width: 100%;
-    opacity: 0.3;
-    position: relative;
-    filter: blur(3px);
-    z-index: -10;
-}
-
-.image-container { /* to fix the blurred edge effect */
-    position: absolute;
-    transform: scale(1.12), translate3d(1, 0, 0);
-    overflow: hidden;
-    top: -5px;
-    bottom: -5px;
-    object-fit: cover;
-    z-index: -10;
-}
-
-.hero, .intro-container {
-    z-index: 1;
-}
-
-.hero {
-    width: 80vw;
-    padding: 0 3rem 3rem 3rem;
-    margin-top: 10vh;
-    text-align: right;
-}
-
-.hero > h1 {
-    font-size: calc(120px + 0.390625vw);
-}
-
-.hero > h2 {
-    font-size: calc(80px + 0.390625vw);
-}
-
-.intro-container {
-    text-align: center;
-}
-
-.intro-p {
-    font-size: calc(40px + 0.390625vw);
-    padding-bottom: 4rem;
-    margin-bottom: 0;
-}
-
-#projects {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-
-.projects-bgImage {
-    z-index: -1;
-    /*position: absolute;*/
-}
-
-.sitecard-text {
-    display: none; /* temporarily disabling content */
-    width: 20rem;
-    color: var(--inv-pri-colour);
-    background-color: var(--inv-bg-colour);
-    border-radius: 10px;
-}
-
-.sitecard-thumbnail {
-    /*position: absolute;*/
-    width: 795px;
-    height: 420px;
-    margin-left: 25%;
-    margin-top: 3%;
-    border-radius: 10px;
-}
-
-.testimonial-card {
-    display: none; /* temporarily disabling content */
-    width: 20rem;
-    color: var(--inv-pri-colour);
-    background-color: var(--inv-bg-colour);
-    border-radius: 10px;
-}
-
-#testimonials {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    margin: auto;
-}
-
-.body-section {
-    margin: 5rem auto;
-    width: 80%;
-}
-
     /* floating menu */
     .nav-container {
         position: fixed;
@@ -338,54 +241,149 @@ a:hover {
         opacity: 1;
     }
 
-.one-column-container {
-    border: 1px solid var(--_debug); /* Debugging */
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.two-column-container {
-    border: 1px solid var(--_debug); /* Debugging */
-}
-
-.column-one {
-    border: 1px solid var(--_debug); /* Debugging */
-    grid-column: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.column-two {
-    border: 1px solid var(--_debug); /* Debugging */
-    grid-column: 2;
-}
-
-.quote-card {
-    margin-top: 3rem;
+/* Hero Section */
+#hero {
     width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--inv-pri-colour);
-    background-color: var(--inv-bg-colour);
-    border-radius: 10px;
-    padding: 1rem;
+    position: relative;
+    height: 100dvh;
 }
 
-.quote-company {
-    transform: scale(70%);
-    font-weight: 600;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+    .hero-bgImage {
+        width: 100%;
+        filter: blur(3px);
+        height: 100dvh;
+        z-index: -10;
+    }
+
+    .hero-bgImage-container { /* to fix the blurred edge effect */
+        position: absolute;
+        width: 100%;
+        top: 0; bottom: 0; left: 0; right: 0;
+        opacity: 0.5;
+        transform: scale(1.12), translate3d(1, 0, 0);
+    }
+
+    .hero {
+        z-index: 1;
+        position: inherit;
+        /*perspective: 300px;*/
+    }
+
+    .main-heading > h1 {
+        font-size: calc(120px + 0.390625vw);
+    }
+
+    .main-heading > h2 {
+        font-size: calc(100px + 0.390625vw);
+    }
+
+    .main-heading {
+        line-height: 1;
+        text-shadow: 3px 3px 3px rgba(0,0,0,.8);
+        /*transform: rotateX(0deg) rotateY(15deg) translateY(5rem);
+        transform-style: preserve-3d;*/
+    }
+
+    .intro-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        width: 50%;
+        margin: 5rem auto;
+    }
+
+    .intro-p {
+        font-size: calc(40px + 0.390625vw);
+        padding: 1rem;
+        text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+        z-index: 1;
+    }
+
+    .hero, .body-container {
+        width: 80vw;
+        padding: 8rem;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+/* About section */
+
+#about {
+    height: 100vh;
 }
 
-.quote-text {
-    margin-top: 0;
-    padding-top: 0;
+/* Projects Section */
+
+#projects {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+    .sitecard-text {
+        display: none; /* temporarily disabling content */
+        width: 20rem;
+        color: var(--inv-pri-colour);
+        background-color: var(--inv-bg-colour);
+        border-radius: 10px;
+    }
+
+    .sitecard-thumbnail {
+        /*position: absolute;*/
+        width: 795px;
+        height: 420px;
+        margin-left: 25%;
+        margin-top: 3%;
+        border-radius: 10px;
+    }
+
+    .testimonial-card {
+        display: none; /* temporarily disabling content */
+        width: 20rem;
+        color: var(--inv-pri-colour);
+        background-color: var(--inv-bg-colour);
+        border-radius: 10px;
+    }
+
+/* Testimonials Section */
+#testimonials {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+}
+
+    .quote-card {
+        margin-top: 3rem;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--inv-pri-colour);
+        background-color: var(--inv-bg-colour);
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    .quote-company {
+        transform: scale(70%);
+        font-weight: 600;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .quote-text {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+#contact {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    margin: auto;
 }
 
 .footer-bar {
@@ -439,6 +437,50 @@ a:hover {
         bottom: 0;
     }
 
+    /* Section Background image setup */
+    .bgImage-container {
+        position: absolute;
+        width: 100%;
+        top: 0; bottom: 0; left: 0; right: 0;
+    }
+
+    .bgImage {
+        width: 100%;
+        height: 100dvh;
+        z-index: -10;
+    }
+
+    /* Grid columns elements*/
+    .one-column-container {
+        border: 1px solid var(--_debug); /* Debugging */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .two-column-container {
+        border: 1px solid var(--_debug); /* Debugging */
+    }
+    
+    .column-one {
+        border: 1px solid var(--_debug); /* Debugging */
+        grid-column: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+    
+    .column-two {
+        border: 1px solid var(--_debug); /* Debugging */
+        grid-column: 2;
+    }
+
+.address-block {
+    text-align: left;
+    margin-top: 5rem;
+}
+
 .social-icons {
     display: inline-flex;
     margin: 0;
@@ -448,6 +490,11 @@ a:hover {
 .social-icons li {
     list-style: none;
     padding-right: 1rem;
+    transition: font-size var(--_transition-time-fast) ease-in-out;
+}
+
+.social-icons li:hover {
+    font-size: 2rem;
 }
 
 .menu ul {

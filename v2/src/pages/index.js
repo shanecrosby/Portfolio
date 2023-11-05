@@ -1,15 +1,18 @@
 //src/pages/index.js
 // react and plugins
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faBars, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "gatsby"
+import { faLightbulb, faBars, faArrowDown, faArrowUp, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import SweetScroll from 'sweet-scroll';
+//import { Link } from "gatsby";
 
 // components
 import Footer from '../components/Footer'; // Import your footer component
-import TestimonialCardComponent from '../components/TestimonialCard'
+import TestimonialCardComponent from '../components/TestimonialCard';
 import SiteCardComponent from '../components/sitecard';
 import QuoteCardComponent from '../components/QuoteCard';
 
@@ -34,6 +37,7 @@ const IndexPage = () => {
     const handleScroll = (direction) => {
         const sections = document.querySelectorAll('section');
         const currentSectionElement = sections[currentSection];
+        console.log("Current Section:",currentSectionElement);
         let targetSection;
         if (direction === 'down') {
             targetSection = currentSectionElement.nextElementSibling;
@@ -49,6 +53,7 @@ const IndexPage = () => {
     };
 
     useEffect(() => {
+
         const updateSectionIndex = () => {
             window.addEventListener('scroll', () => {
                 const sections = document.querySelectorAll('section');
@@ -124,19 +129,34 @@ const IndexPage = () => {
             }
         }
 
-        heroImage: file(relativePath: { eq: "code-1839406.jpg" }) {
+        projectsBGImage: file(relativePath: { eq: "radek-grzybowski-eBRTYyjwpRY-unsplash.jpg" }) {
             childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(
+                    width: 2000,
+                    quality: 50,
+                    placeholder: BLURRED, 
+                    formats: [AUTO, WEBP, AVIF],
+                    webpOptions: {quality: 70}
+                )
             }
         }
 
-        projectsImage: file(relativePath: { eq: "apple-606761.jpg" }) {
+        heroBGImage: file(relativePath: { eq: "luca-bravo-XJXWbfSo2f0-unsplash.jpg" }) {
             childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(
+                    width: 2000,
+                    quality: 50,
+                    placeholder: BLURRED, 
+                    formats: [AUTO, WEBP, AVIF],
+                    webpOptions: {quality: 70}
+                )
             }
         }
     }
 `);
+
+    const heroBGImage = getImage(data.heroBGImage);
+    const projectsBGImage = getImage(data.projectsBGImage);
 
     return (
         <div id="page-container">
@@ -184,9 +204,11 @@ const IndexPage = () => {
                     </div>
                     <nav className={`nav-bar ${isOpen ? 'open' : 'closed'}`}>
                         <ul className='menu'>
-                            <Link to="/" activeClassName='active'><li>Home</li></Link>
-                            <Link to="/about" activeClassName='active'><li>About</li></Link>
-                            <Link to="/contact" activeClassName='active'><li>Contact</li></Link>
+                            <a href="#hero"><li>Home</li></a>
+                            <a href="#about"><li>About</li></a>
+                            <a href="#projects"><li>Projects</li></a>
+                            <a href="#testimonials"><li>Testimonials</li></a>
+                            <a href="#contact"><li>Contact</li></a>
                         </ul>
                     </nav>
                 </div>
@@ -194,29 +216,28 @@ const IndexPage = () => {
 
             <main>
                 <section id="hero">
-                    <div className="image-container">
-                        <GatsbyImage image={getImage(data.heroImage)} alt="" className="hero-bgImage" />
+                    <div className="hero-bgImage-container">
+                        <BgImage image={heroBGImage} className="hero-bgImage">&nbsp;</BgImage>
                     </div>
-                    <div className='hero'>
-                        <h1 className='main-heading'>Shane Crosby</h1><h2>Web Designer</h2>
+                    <div className='hero main-heading'>
+                        <h1 className='main-heading'>Shane Crosby</h1><h2 className='main-heading'>Web Designer</h2>
                     </div>
                     <div className='intro-container'>
-                        <p className='intro-p'>My name is Shane and I make websites.</p>
+                        <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
+                    </div>
+                </section>
+                <section id="about">
+                    <div className="body-container">
+                        <div className="body-heading"><h1>About Me</h1></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptatibus quasi eius ducimus deleniti rerum quis? Sit est dignissimos, quasi voluptate reiciendis amet minus hic repellat dolore adipisci, velit ipsum.</p>
                     </div>
                 </section>
                 <section id="projects">
-                    <GatsbyImage image={getImage(data.projectsImage)} alt="" className="projects-bgImage" />
-                    <div className="body-section">
-                        <h1 className="section-title">Projects</h1>
-                        {/*<div className="one-column-container flex">
-                            <ul className='menu'>
-                                <a href="https://itsyourday.au"><li>Tonia Bovell - It's Your Day</li></a>
-                                <a href="https://brushquest.com.au"><li>BrushQuest</li></a>
-                                <a href="https://bellabakes.shanecrosby.com"><li>Bella Bakes, Bakery and Patisserie (Sample site)</li></a>
-                                <a href="https://inkwell.shanecrosby.com"><li>InkWell Stationers (Sample Site)</li></a>
-                            </ul>
-                        </div>*/}
-                    
+                    <div className="bgImage-container">
+                        <BgImage image={projectsBGImage} className="bgImage">&nbsp;</BgImage>
+                    </div>
+                    <div className="body-container">
+                        <div className="body-heading"><h1>Projects</h1></div>
                         <div id="project-summary">
                             {/* Portfolio site card component */
                                 data.allSanityWebsite.edges.map(edge => {
@@ -235,11 +256,10 @@ const IndexPage = () => {
                     </div>
                 </section>
                 <section id="testimonials">
-                    <div className="body-section">
+                    <div className="body-container">
+                        <div className="body-heading"><h1>Testimonials</h1></div>
+                        <p>These are some nice things my former colleagues have said about me.</p>
                         <div className="one-column-container flex">
-                            <p className="body-text">
-                                These are some nice things other people have said about me.
-                            </p>
                             <div className="column-one">
                                 {/* Quote site card component */
                                     data.allSanityQuotation.edges.map(edge => {
@@ -251,8 +271,30 @@ const IndexPage = () => {
                         </div>
                     </div>
                 </section>
+                <section id="contact">
+                    <div className="body-container">
+                        <div className="body-heading"><h1>I'd love to hear from you!</h1></div>
+                        <p>Let's make something beautiful together. Leave me a message with a brief summary of what you're looking for, and I'll get in touch to see how best I can help you achieve your vision.</p>
+                        {/* Insert Contact Form Here */}
+                        <div className="address-block">
+                            <p>
+                                <b>Shane Crosby</b><br />
+                                2 Cortona Grove<br />
+                                Sinagra, Western Australia, 6065<br />
+                                <b>Phone:</b> +61 407 472 944<br />
+                                <b>ABN:</b> 41781010072<br />
+                            </p>
+                            <ul className='social-icons'>
+                                <a href="https://facebook.com/crosbyshane" aria-label="Facebook" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
+                                <a href="https://twitter.com/crosbyshane" aria-label="Twitter" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
+                                <a href="https://instagram.com/crosbyshane" aria-label="Instagram" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
+                                <a href="https://www.youtube.com/@ShaneCrosby" aria-label="Youtube" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
+                                <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faPhone} /></li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </main>
-
             <Footer />
         </div>
     );
