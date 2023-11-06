@@ -1,5 +1,6 @@
 // src/components/SiteCard.js
 
+// react and plugins
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import './css/sitecard.css';

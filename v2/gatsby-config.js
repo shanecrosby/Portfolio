@@ -21,6 +21,7 @@ module.exports = {
       }
     },
     "gatsby-plugin-sharp",
+    "gatsby-plugin-recaptcha",
     "gatsby-transformer-sharp",
     {
       resolve: 'gatsby-source-filesystem',

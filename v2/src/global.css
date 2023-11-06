@@ -2,22 +2,26 @@
 
 :root {
     /* Primary Colours - Dark Mode */
-    --dm_primary-colour: rgb(214, 214, 214);
-    --dm_secondary-colour: rgb(72, 107, 233);
-    --dm_background-colour: rgb(17, 22, 51);
+    --dm_primary-colour: #F9F9F9;
+    --dm_secondary-colour: rgb(32, 66, 185);
+    --dm_background-colour: rgb(16, 11, 53);
     --dm_light-grey-solid: #ECF0F1;
+    --dm_shadow-colour: rgba(0,0,0,.8);
 
-    --lm_primary-colour: rgb(0, 51, 146);
-    --lm_secondary-colour: rgb(72, 107, 233);
+    --lm_primary-colour: rgb(7, 3, 66);
+    --lm_secondary-colour: rgb(32, 66, 185);
     --lm_background-colour: rgb(233, 238, 255);
     --lm_light-grey-solid: #ECF0F1;
+    --lm_shadow-colour: rgba(255,255,255,.5);
+
+    --_recaptcha_bg: #f9f9f9; /* This is set by Google and seemingly can't be overridden */
     
     /* Colours with transparency */
     --_light-grey: rgba(255, 255, 255, 0.2);
     --lm_background-colour-transparent: rgba(233, 238, 255, 0.75);
     --dm_background-colour-transparent: rgba(29, 41, 63, 0.75);
 
-    --_debug: rgba(255,0,0,0);
+    --_debug: rgba(255, 0, 0, 0);
 
     --_heading-font: 'Kanit';
     --_body-font: 'Montserrat';
@@ -78,6 +82,8 @@ a, a:visited {
 
 .body-heading {
     font-size: calc(50px + 0.390625vw);
+    line-height: 1.25;
+    margin: 0;
 }
 
 /* Mode-specific color assignment */
@@ -86,6 +92,7 @@ a, a:visited {
     --secondary-colour: var(--dm_secondary-colour);
     --background-colour: var(--dm_background-colour);
     --background-colour-transparent: var(--dm_background-colour-transparent);
+    --shadow-colour: var(--dm_shadow-colour);
     --inv-pri-colour: var(--dm_background-colour);
     --inv-sec-colour: var(--lm_secondary-colour);
     --inv-bg-colour: var(--dm_primary-colour);
@@ -96,16 +103,19 @@ a, a:visited {
     --secondary-colour: var(--lm_secondary-colour);
     --background-colour: var(--lm_background-colour);
     --background-colour-transparent: var(--lm_background-colour-transparent);
+    --shadow-colour: var(--lm_shadow-colour);
     --inv-pri-colour: var(--dm_primary-colour);
     --inv-sec-colour: var(--dm_secondary-colour);
     --inv-bg-colour: var(--dm_background-colour);
 }
 
 /* Universal transition setup */
-body, a, li, li > a, .control-button {
-    transition: color var(--_transition-time-slow), 
-        background-color var(--_transition-time-slow), 
-        border-color var(--_transition-time-slow);
+body, h1, h2, h3, a, li, li > a, .control-button {
+    transition: color var(--_transition-time), 
+        background-color var(--_transition-time), 
+        border-color var(--_transition-time),
+        text-shadow var(--_transition-time);
+    transition-timing-function: linear;
 }
 
 .hidden {
@@ -283,7 +293,7 @@ a:hover {
 
     .main-heading {
         line-height: 1;
-        text-shadow: 3px 3px 3px rgba(0,0,0,.8);
+        text-shadow: 3px 3px 3px var(--shadow-colour);
         /*transform: rotateX(0deg) rotateY(15deg) translateY(5rem);
         transform-style: preserve-3d;*/
     }
@@ -300,7 +310,7 @@ a:hover {
     .intro-p {
         font-size: calc(40px + 0.390625vw);
         padding: 1rem;
-        text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+        text-shadow: 2px 2px 3px var(--shadow-colour);
         z-index: 1;
     }
 
@@ -370,7 +380,12 @@ a:hover {
         padding: 1rem;
     }
 
+    .quote-name {
+        color: var(--secondary-colour);
+    }
+
     .quote-company {
+        color: var(--secondary-colour);
         transform: scale(70%);
         font-weight: 600;
         padding: 0;
@@ -386,53 +401,90 @@ a:hover {
 #contact {
     position: relative;
     width: 100%;
-    height: calc(100dvh - 1.5rem);
+    height: calc(100dvh - 3rem);
     margin: auto;
 }
 
 .form-container {
-    background-color: var(--inv-bg-colour);
+    background-color: var(--_recaptcha_bg);
     color: var(--inv-pri-colour);
     padding: 1rem;
-    width: 70vw;
+    width: 50vw;
     margin: auto;
     height: fit-content;
+    transition: background-color var(--_transition-time), color var(--_transition-time);
 }
 
 input {
-    margin: 2rem 0;
+    margin: 1rem 0;
     width: 70%;
+    transition: background-color var(--_transition-time), color var(--_transition-time);
+    font-family: var(--_body-font);
+}
+
+textarea {
+    transition: background-color var(--_transition-time), color var(--_transition-time);
 }
 
 input[type=text], input[type=email] {
-    background-color: var(--inv-bg-colour);
+    background-color: var(--_recaptcha_bg);
     border: none;
     border-bottom: 1px solid var(--inv-pri-colour);
-    font-size: calc(var(--_body-font-size) * 1.1);
+    font-size: var(--_body-font-size);
     width: 95%;
 }
 
 #contact-form label {
-    font-size: calc(var(--_body-font-size) * 1.1)
+    font-size: var(--_body-font-size);
 }
 
 #contact-form textarea {
     height: 10rem;
     width: 95%;
     resize: none;
-    background-color: var(--inv-bg-colour);
+    background-color: var(--_recaptcha_bg);
     border: 1px solid var(--inv-pri-colour);
+    font-size: var(--_body-font-size);
+    font-family: var(--_body-font);
 }
 
 #contact-form button, #contact-form input[type=reset] {
     border-radius: 2rem;
     border: 1px solid var(--primary-colour);
     background-color: var(--background-colour);
-    color: var(--primary-colour);
+    color: var(--_recaptcha_bg);
     font: var(--_body-font) var(--_body-font-size);
     width: fit-content;
     padding: 1rem;
     margin: 2rem 1rem;
+    transition: border var(--_transition-time-fast), 
+        color var(--_transition-time-fast), 
+        background-color var(--_transition-time-fast),
+        opacity var(--_transition-time) ease-in-out;
+}
+
+#contact-form button:hover, #contact-form input[type=reset]:hover { 
+    background-color: var(--secondary-colour);
+    color: var(--_recaptcha_bg);
+    border: 1px solid var(--background-colour);
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.g-recaptcha {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: 1rem;
+}
+
+#confirmation-msg {
+    color: green;
 }
 
 .footer-bar {
@@ -567,7 +619,11 @@ input[type=text], input[type=email] {
 }
     
 .address-block {
+    position: absolute;
     text-align: left;
+    margin: 0 1rem;
+    left: 0;
+    bottom: 0;
 }
 
 .social-icons {
