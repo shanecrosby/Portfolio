@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        "fonts": [`Montserrat`,`Kanit`],
+        "fonts": [`Montserrat`,`Kanit`,`Shadows Into Light`,`Architects Daughter`,`Nanum Brush Script`],
         "display": 'swap'
       }
     },
