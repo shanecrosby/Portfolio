@@ -27,7 +27,7 @@
     --_body-font: 'Montserrat', 'Verdana', 'Optima', sans-serif;
     --_handwriting1: 'Shadows Into Light', cursive, sans-serif ;
     --_handwriting2: 'Architects Daughter', cursive, sans-serif;
-    --_handwriting3: 'Nanum Brush Script', cursive, sans-serif;
+    --_handwriting3: 'Square Peg', cursive, sans-serif;
     --_body-font-size: calc(15px + 0.390625vw);
 
     /* Transition timings */
@@ -119,11 +119,6 @@ body, h1, h2, h3, a, li, li > a, .control-button {
         border-color var(--_transition-time),
         text-shadow var(--_transition-time);
     transition-timing-function: linear;
-}
-
-.hidden {
-    opacity: 0;
-    transition: opacity var(--_transition-time) ease-in-out;
 }
 
 .nav-bar {
@@ -342,29 +337,66 @@ a:hover {
     height: 100vh;
 }
 
-    .sitecard-text {
-        display: none; /* temporarily disabling content */
-        width: 20rem;
-        color: var(--inv-pri-colour);
-        background-color: var(--inv-bg-colour);
-        border-radius: 10px;
+    .project-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 65vw;
+        margin: 10rem auto;
     }
 
-    .sitecard-thumbnail {
-        /*position: absolute;*/
-        width: 795px;
-        height: 420px;
-        margin-left: 25%;
-        margin-top: 3%;
-        border-radius: 10px;
+    .project-controls > .control-button {
+        font-size: calc(var(--_body-font-size) * 2);
+        padding: 3rem;
+        border-radius: 50%;
+    }
+
+    .card-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #project-summary {
+        width: 95vw;
+        margin: auto;
     }
 
     .testimonial-card {
-        display: none; /* temporarily disabling content */
-        width: 20rem;
+        transition: opacity var(--_transition-time) ease-in-out;
+        width: 25%;
+    }
+
+    .site-card {
+        width: 25%;
+    }
+
+    .site-card, .testimonial-card {
+        height: fit-content;
+        padding: 1rem;
         color: var(--inv-pri-colour);
         background-color: var(--inv-bg-colour);
         border-radius: 10px;
+    }
+
+    .sitecard-descriptor, .testimonial-text {
+        padding-top: 1rem;
+        text-align: justify;
+    }
+
+    .sitecard-descriptor {
+        font-size: calc(var(--_body-font-size) * .8);
+    }
+
+    .testimonial-text {
+        font-size: calc(var(--_body-font-size) * 1.1);
+    }
+
+    .sitecard-header > h1 > a, .testimonial-header {
+        color: var(--inv-pri-colour);
+        font-style: normal;
+        line-height: 1;
     }
 
 /* Testimonials Section */
@@ -376,11 +408,11 @@ a:hover {
 }
 
     .quote-card {
-        margin-top: 3rem;
         width: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         color: var(--inv-pri-colour);
         background-color: var(--inv-bg-colour);
         border-radius: 10px;
@@ -406,16 +438,16 @@ a:hover {
         padding-top: 0;
     }
 
-    .quote-card:nth-child(1) .quote-text {
+    .quote-card:nth-child(1) .quote {
         font-family: var(--_handwriting1);
         font-size: calc(var(--_body-font-size) * 1.1);
     }
 
-    .quote-card:nth-child(2) .quote-text {
+    .quote-card:nth-child(2) .quote {
         font-family: var(--_handwriting2);
     }
 
-    .quote-card:nth-child(3) .quote-text {
+    .quote-card:nth-child(3) .quote {
         font-family: var(--_handwriting3);
         font-size: calc(var(--_body-font-size) * 1.4);
     }
@@ -567,12 +599,6 @@ input[type=text]::placeholder, input[type=email]::placeholder {
         bottom: 0;
     }
 
-    .spacer {
-        height: 40vh;
-        display: block;
-        position: relative;
-    }
-
     /* Section Background image setup */
     .bg-Image-container {
         position: absolute;
@@ -642,6 +668,69 @@ input[type=text]::placeholder, input[type=email]::placeholder {
         border: 1px solid var(--_debug); /* Debugging */
         justify-items: start;
     }
+
+.section-bg {
+    z-index: -20;
+    position: absolute !important;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity var(--_transition-time-slow) ease-in-out;
+    display: none;
+}
+
+.fade-in {
+    animation: fadeInAnimation ease var(--_transition-time-slow);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.fade-out {
+    animation: fadeOutAnimation ease var(--_transition-time-slow);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOutAnimation {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.handwritten {
+    font-family: var(--_handwriting3);
+}
+
+.spacer {
+    height: 40vh;
+    display: block;
+    position: relative;
+}
+
+.quote {
+    display: flex;
+    flex-direction: row;
+}
+
+.block-content, .quote > p {
+    text-align: justify;
+}
+
+.left {
+    left: 0;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.right {
+    text-align: right !important;
+    align-self: flex-end;
+}
 
 .smaller {
     font-size: calc(var(--_body-font-size) * 0.8);

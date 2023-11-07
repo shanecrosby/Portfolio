@@ -2,7 +2,6 @@
 
 // react and plugins
 import React from 'react';
-//import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from "gatsby";
 
 // components
@@ -18,7 +17,7 @@ const TestimonialSection = () => {
                         id
                         name
                         company
-                        quote
+                        _rawQuote(resolveReferences: { maxDepth: 5 })
                     }
                 }
             }
@@ -31,7 +30,7 @@ const TestimonialSection = () => {
         <section id="testimonials" name="testimonials">
             <div className="body-container">
                 <div className="body-heading"><h1>Testimonials</h1></div>
-                <p>These are some nice things my former colleagues have said about me.</p>
+                <p>I've been fortunate to work with some incredible and lovely people over the years.<br />These are some nice things some of my former colleagues have said about me.</p>
                 <div className="one-column-flex">
                     <div className="three-columns">
                         {/* Quote site card component */

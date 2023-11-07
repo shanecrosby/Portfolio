@@ -98,49 +98,6 @@ const IndexPage = () => {
 
     const data = useStaticQuery(graphql`
         query {
-            allSanityTestimonial {
-                edges {
-                    node {
-                        id
-                        name
-                        website
-                        content
-                    }
-                }
-            }
-            
-            allSanityWebsite {
-                edges {
-                    node {
-                        id
-                        name
-                        url
-                        description
-                        thumbnail {
-                            asset {
-                                gatsbyImageData(
-                                    fit: FILLMAX
-                                    placeholder: BLURRED
-                                    width: 1000
-                                )
-                            }
-                        }
-                        caption
-                    }
-                }
-            }
-
-            allSanityQuotation {
-                edges {
-                    node {
-                        id
-                        name
-                        company
-                        quote
-                    }
-                }
-            }
-
             heroBGImage: file(relativePath: { eq: "luca-bravo-XJXWbfSo2f0-unsplash.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(
@@ -152,10 +109,42 @@ const IndexPage = () => {
                     )
                 }
             }
+
+            projectsBGImage: file(relativePath: { eq: "ProjectSection-Background.jpg" }) {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 2000,
+                        quality: 50,
+                        placeholder: BLURRED, 
+                        formats: [AUTO, WEBP, AVIF],
+                        webpOptions: {quality: 70}
+                    )
+                }
+            }
+            
+            allSanityWebsite {
+                edges {
+                    node {
+                        id
+                        name
+                        clientname
+                        url
+                        _rawDescription(resolveReferences: { maxDepth: 5 })
+                        _rawTestimonial(resolveReferences: { maxDepth: 5 })
+                        caption
+                        thumbnail {
+                            asset {
+                                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED, width: 1000)
+                            }
+                        }
+                    }
+                }
+            }
         }
     `);
-
     const heroBGImage = getImage(data.heroBGImage);
+    const projectsBGImage = getImage(data.projectsBGImage);
+    const projects = data.allSanityWebsite.edges.map(edge => edge.node);
 
     return (
         <div id="page-container">
@@ -227,7 +216,7 @@ const IndexPage = () => {
                 </section>
                 <Suspense fallback={<div>Loading section...</div>}>
                     <AboutSection darkMode={darkMode} />
-                    <ProjectSection />
+                    <ProjectSection projects={projects} background={projectsBGImage} />
                     <TestimonialSection />
                     <ContactSection />
                 </Suspense>
