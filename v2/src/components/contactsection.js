@@ -1,9 +1,9 @@
 // src/components/contactsection.js
 
 // react and plugins
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+//import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
@@ -25,6 +25,8 @@ const ContactSection = () => {
             const submitButton = document.getElementById('submitbutton');
             submitButton.disabled = 'true';
             submitButton.classList.add('hidden');
+        } else {
+            console.log(serverState);
         }
     };
     const handleOnSubmit = e => {
