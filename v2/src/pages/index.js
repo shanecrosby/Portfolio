@@ -2,7 +2,7 @@
 // react and plugins
 import React, { useEffect, useState, Suspense } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faBars, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -10,11 +10,11 @@ import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from '
 //import { Link } from "gatsby";
 
 // components
-import AboutSection from '../components/aboutsection';
-import ProjectSection from '../components/projectsection';
-import ContactSection from '../components/contactsection';
-import TestimonialSection from '../components/testimonialsection';
-import Footer from '../components/Footer'; // Import your footer component
+const AboutSection = React.lazy(() => import('../components/aboutsection'));
+const ProjectSection = React.lazy(() => import( '../components/projectsection'));
+const ContactSection = React.lazy(() => import( '../components/contactsection'));
+const TestimonialSection = React.lazy(() => import( '../components/testimonialsection'));
+const Footer = React.lazy(() => import( '../components/Footer')); // Import your footer component
 
 const IndexPage = () => {
     //Handle the light/dark mode switching
@@ -22,6 +22,7 @@ const IndexPage = () => {
     useEffect(() => {
         document.body.classList.toggle('dark-mode', darkMode);
         document.body.classList.toggle('light-mode', !darkMode);
+        console.log("Dark mode:",darkMode);
     }, [darkMode]);
     const changeMode = () => setDarkMode(prevMode => !prevMode);
 
@@ -62,7 +63,6 @@ const IndexPage = () => {
         }
     };
     useEffect(() => {
-
         const updateSectionIndex = () => {
             window.addEventListener('scroll', () => {
                 const sections = document.querySelectorAll('section');
@@ -225,10 +225,12 @@ const IndexPage = () => {
                         <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
                     </div>
                 </section>
-                <AboutSection />
-                <ProjectSection />
-                <TestimonialSection />
-                <ContactSection />
+                <Suspense fallback={<div>Loading section...</div>}>
+                    <AboutSection darkMode={darkMode} />
+                    <ProjectSection />
+                    <TestimonialSection />
+                    <ContactSection />
+                </Suspense>
             </main>
             <Footer />
         </div>
