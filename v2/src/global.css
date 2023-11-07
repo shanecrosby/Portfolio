@@ -23,8 +23,11 @@
 
     --_debug: rgba(255, 0, 0, 0);
 
-    --_heading-font: 'Kanit';
-    --_body-font: 'Montserrat';
+    --_heading-font: 'Kanit', 'Gill Sans', 'Optima', sans-serif;
+    --_body-font: 'Montserrat', 'Verdana', 'Optima', sans-serif;
+    --_handwriting1: 'Shadows Into Light', cursive, sans-serif ;
+    --_handwriting2: 'Architects Daughter', cursive, sans-serif;
+    --_handwriting3: 'Nanum Brush Script', cursive, sans-serif;
     --_body-font-size: calc(15px + 0.390625vw);
 
     /* Transition timings */
@@ -321,6 +324,10 @@ a:hover {
         text-align: center;
     }
 
+    .body-container {
+        position: relative;
+    }
+
 /* About section */
 
 #about {
@@ -378,6 +385,7 @@ a:hover {
         background-color: var(--inv-bg-colour);
         border-radius: 10px;
         padding: 1rem;
+        transition: background-color var(--_transition-time), color var(--_transition-time);
     }
 
     .quote-name {
@@ -398,6 +406,20 @@ a:hover {
         padding-top: 0;
     }
 
+    .quote-card:nth-child(1) .quote-text {
+        font-family: var(--_handwriting1);
+        font-size: calc(var(--_body-font-size) * 1.1);
+    }
+
+    .quote-card:nth-child(2) .quote-text {
+        font-family: var(--_handwriting2);
+    }
+
+    .quote-card:nth-child(3) .quote-text {
+        font-family: var(--_handwriting3);
+        font-size: calc(var(--_body-font-size) * 1.4);
+    }
+
 #contact {
     position: relative;
     width: 100%;
@@ -407,7 +429,7 @@ a:hover {
 
 .form-container {
     background-color: var(--_recaptcha_bg);
-    color: var(--inv-pri-colour);
+    color: var(--lm_primary-colour);
     padding: 1rem;
     width: 50vw;
     margin: auto;
@@ -429,9 +451,14 @@ textarea {
 input[type=text], input[type=email] {
     background-color: var(--_recaptcha_bg);
     border: none;
-    border-bottom: 1px solid var(--inv-pri-colour);
+    border-bottom: 1px solid var(--lm_primary-colour);
     font-size: var(--_body-font-size);
     width: 95%;
+}
+
+input[type=text]::placeholder, input[type=email]::placeholder {
+    font-style: italic;
+    color: var(--dm_background-colour-transparent);
 }
 
 #contact-form label {
@@ -443,15 +470,15 @@ input[type=text], input[type=email] {
     width: 95%;
     resize: none;
     background-color: var(--_recaptcha_bg);
-    border: 1px solid var(--inv-pri-colour);
+    border: 1px solid var(--lm_primary-colour);
     font-size: var(--_body-font-size);
     font-family: var(--_body-font);
 }
 
 #contact-form button, #contact-form input[type=reset] {
     border-radius: 2rem;
-    border: 1px solid var(--primary-colour);
-    background-color: var(--background-colour);
+    border: 1px solid var(--lm_primary-colour);
+    background-color: var(--dm_background-colour);
     color: var(--_recaptcha_bg);
     font: var(--_body-font) var(--_body-font-size);
     width: fit-content;
@@ -464,9 +491,9 @@ input[type=text], input[type=email] {
 }
 
 #contact-form button:hover, #contact-form input[type=reset]:hover { 
-    background-color: var(--secondary-colour);
+    background-color: var(--lm_secondary-colour);
     color: var(--_recaptcha_bg);
-    border: 1px solid var(--background-colour);
+    border: 1px solid var(--dm_background-colour);
 }
 
 .form-buttons {
@@ -540,17 +567,24 @@ input[type=text], input[type=email] {
         bottom: 0;
     }
 
+    .spacer {
+        height: 40vh;
+        display: block;
+        position: relative;
+    }
+
     /* Section Background image setup */
-    .bgImage-container {
+    .bg-Image-container {
         position: absolute;
         width: 100%;
-        top: 0; bottom: 0; left: 0; right: 0;
     }
 
     .bgImage {
         width: 100%;
         height: 100dvh;
+        top: 0; bottom: 0; left: 0; right: 0;
         z-index: -10;
+        transition: opacity var(--_transition-time) ease-in-out;
     }
 
     /* Grid/Flex columns elements*/
@@ -559,7 +593,7 @@ input[type=text], input[type=email] {
         border: 1px solid var(--_debug);
         flex-flow: wrap;
         padding: 0px 10rem;
-        width: 70vw;
+        width: 80vw;
         margin: auto;
     }
     
@@ -613,9 +647,10 @@ input[type=text], input[type=email] {
     font-size: calc(var(--_body-font-size) * 0.8);
 }
 
-.heading-bg {
+.text-bg {
     background-color: var(--background-colour-transparent);
     width: 100%;
+    padding: .5rem 0;
 }
     
 .address-block {
