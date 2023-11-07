@@ -3,7 +3,7 @@
 // react and plugins
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 import { BgImage } from "gbimage-bridge";
 
 // components
@@ -35,9 +35,9 @@ const ProjectSection = () => {
                         thumbnail {
                             asset {
                                 gatsbyImageData(
-                                    fit: FILLMAX
                                     placeholder: BLURRED
-                                    width: 1000
+                                    width: 2000
+                                    formats: [AUTO, WEBP, AVIF]
                                 )
                             }
                         }
@@ -45,30 +45,22 @@ const ProjectSection = () => {
                     }
                 }
             }
-
-            projectsBGImage: file(relativePath: { eq: "radek-grzybowski-eBRTYyjwpRY-unsplash.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(
-                        width: 2000,
-                        quality: 50,
-                        placeholder: BLURRED, 
-                        formats: [AUTO, WEBP, AVIF],
-                        webpOptions: {quality: 70}
-                    )
-                }
-            }
         }
     `);
-    
-    const projectsBGImage = getImage(data.projectsBGImage);
 
     return (
         <section id="projects" name="projects">
-            <div className="bgImage-container">
-                <BgImage image={projectsBGImage} className="bgImage">&nbsp;</BgImage>
+            <div className="bg-Image-container">
+                { /* Background Image from Sanity */
+                    data.allSanityWebsite.edges.map(edge => {
+                        const card = edge.node;
+                        const bgImage = getImage(card.thumbnail.asset)
+                        return <BgImage key={card.id} image={bgImage} className="bgImage">&nbsp;</BgImage>
+                    })
+                }
             </div>
             <div className="body-container">
-                <div className="body-heading heading-bg"><h1>Projects</h1></div>
+                <div className="body-heading text-bg"><h1>Projects</h1></div>
                 <div id="project-summary">
                     {/* Portfolio site card component */
                         data.allSanityWebsite.edges.map(edge => {
