@@ -2,7 +2,7 @@
 
 // react and plugins
 import React from 'react';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+//import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from "gatsby";
 
 // components
@@ -24,6 +24,8 @@ const TestimonialSection = () => {
             }
         }
     `);
+
+    const shuffledCards = data.allSanityQuotation.edges.sort(() => 0.5 - Math.random());
     
     return (
         <section id="testimonials" name="testimonials">
@@ -33,7 +35,7 @@ const TestimonialSection = () => {
                 <div className="one-column-flex">
                     <div className="three-columns">
                         {/* Quote site card component */
-                            data.allSanityQuotation.edges.map(edge => {
+                            shuffledCards.map(edge => {
                                 const card = edge.node;
                                 return <QuoteCardComponent key={card.id} quote={card} />;
                             })
