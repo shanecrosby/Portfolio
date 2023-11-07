@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        "fonts": [`Montserrat`,`Kanit`,`Shadows Into Light`,`Architects Daughter`,`Nanum Brush Script`],
+        "fonts": [`Montserrat`,`Kanit`,`Shadows Into Light`,`Architects Daughter`,`Square Peg`],
         "display": 'swap'
       }
     },
@@ -44,7 +44,9 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_DATASET,
         token: process.env.SANITY_TOKEN,
-        graphqlTag: 'portfolio'
+        graphqlTag: 'portfolio',
+        watchMode: true,
+        overlayDrafts: true
       }
     }
   ],
