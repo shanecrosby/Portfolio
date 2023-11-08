@@ -1,10 +1,11 @@
 // src/components/aboutsection.js
 
 // react and plugins
-import React from 'react';
+import React, { useEffect} from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+import VanillaTilt from 'vanilla-tilt';
 
 const AboutSection = ({ darkMode }) => {
 
@@ -32,12 +33,37 @@ const AboutSection = ({ darkMode }) => {
                     )
                 }
             }
+
+            shanePortrait: file(relativePath: { eq: "ShaneCrosbyPhoto.png" }) {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 2000,
+                        quality: 50,
+                        placeholder: BLURRED, 
+                        formats: [AUTO, WEBP, AVIF],
+                        webpOptions: {quality: 70}
+                    )
+                }
+            }
         }
     `);
 
     const aboutBGImageDark = getImage(data.aboutBGImageDark);
     const aboutBGImageLight = getImage(data.aboutBGImageLight);
-    
+    const shanePortraitImg = getImage(data.shanePortrait);
+
+    // Fancy tilt card effect
+    useEffect(() => {
+        VanillaTilt.init(document.querySelectorAll(".bio-image"), {
+            max: 20,
+            perspective: 2000,
+            speed: 1000,
+            glare: true,
+            'max-glare': 0.20,
+            gyroscope: true
+        });
+    })
+
     return (
         <section id="about" name="about">
             <div className="bg-Image-container">
@@ -45,7 +71,7 @@ const AboutSection = ({ darkMode }) => {
             </div>
             <div className="body-container">
                 <div className="body-heading"><h1>Who am I?</h1></div>
-                <div className="spacer"></div>
+                <div className="spacer"><GatsbyImage image={shanePortraitImg} className='bio-image' /></div>
                 <div className="text-bg">
                     <div className="body-text">
                         <p>I was born and raised in Perth, Western Australia.</p>
