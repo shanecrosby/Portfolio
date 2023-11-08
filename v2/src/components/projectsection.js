@@ -2,7 +2,7 @@
 
 // react and plugins
 import React, { useState } from 'react';
-import { getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,7 @@ const ProjectSection = ({ projects, background }) => {
             setTimeout(() => {
                 setCurrentIndex(index);
                 setTransitioning(false);
-            }, 800); //Time in msec - should match CSS transition time
+            }, 1000); //Time in msec - should match CSS transition time
         };
 
         // Navigate to next project in list
@@ -37,7 +37,7 @@ const ProjectSection = ({ projects, background }) => {
         <section id="projects" name="projects">
             <div className="bg-Image-container">
                 { /* Background Image from Sanity */}
-                <BgImage key={currentProject.id} image={bgImage} className={`bgImage ${transitioning ? 'fade-out' : 'fade-in'}`}>&nbsp;</BgImage>
+                <a href={currentProject.url} target='_blank' rel='noreferrer'><GatsbyImage key={currentProject.id} image={bgImage} alt={currentProject.caption} className={`bgImage ${transitioning ? 'fade-out' : 'fade-in'}`} /></a>
                 {/* Default background image to appear during project cross-fade */}
                 <BgImage key='static-projectBG'image={background} className={`bgImage section-bg`}>&nbsp;</BgImage>
             </div>

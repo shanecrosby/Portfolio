@@ -14,7 +14,7 @@ const SiteCardComponent = ({ examplesite, transitioning }) => {
     return (
         <div className={`card-container ${transitioning ? 'fade-out' : 'fade-in'}`}>
             <div className="site-card">
-                <div className="sitecard-header"><h1><a href={examplesite.url}>{examplesite.name}</a></h1></div>
+                <div className="sitecard-header"><h1><a href={examplesite.url} target='_blank' rel='noreferrer'>{examplesite.name}</a></h1></div>
                 <div className="sitecard-descriptor"><BlockContent blocks={examplesite._rawDescription} /></div>
             </div>
             <div className={cardClass}> 

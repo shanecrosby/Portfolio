@@ -1,8 +1,9 @@
 // src/components/testimonialsection.js
 
 // react and plugins
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
+import VanillaTilt from 'vanilla-tilt';
 
 // components
 import QuoteCardComponent from '../components/QuoteCard';
@@ -23,8 +24,25 @@ const TestimonialSection = () => {
             }
         }
     `);
+    
+    // Need to store the shuffled quotes in their own state so they don't change every time the menu is interacted with
+    const [shuffledCards, setShuffledCards] = useState([]);
 
-    const shuffledCards = data.allSanityQuotation.edges.sort(() => 0.5 - Math.random());
+    // Shuffle once on component mount
+    useEffect(() => {
+        setShuffledCards(data.allSanityQuotation.edges.sort(() => 0.5 - Math.random()))
+    }, [data.allSanityQuotation.edges]);
+
+    // Fancy tilt card effect
+    useEffect(() => {
+        VanillaTilt.init(document.querySelectorAll(".quote-card"), {
+            max: 5,
+            speed: 1000,
+            glare: true,
+            'max-glare': 0.50,
+            gyroscope: true
+        });
+    })
     
     return (
         <section id="testimonials" name="testimonials">
