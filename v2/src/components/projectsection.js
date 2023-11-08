@@ -9,6 +9,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 // components
 import SiteCardComponent from '../components/sitecard';
+import '../components/css/projectsection.css';
 
 const ProjectSection = ({ projects, background }) => {
     // ** Function to control navigation of projects from main screen **

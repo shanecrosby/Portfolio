@@ -7,6 +7,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 import VanillaTilt from 'vanilla-tilt';
 
+import '../components/css/aboutsection.css';
+
 const AboutSection = ({ darkMode }) => {
 
     const data = useStaticQuery(graphql`

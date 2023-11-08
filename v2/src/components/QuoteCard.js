@@ -1,6 +1,5 @@
 // src/components/QuoteCard.js
 import React from 'react';
-import './css/quotecard.css';
 import BlockContent from '@sanity/block-content-to-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';

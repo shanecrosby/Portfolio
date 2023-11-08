@@ -3,11 +3,12 @@
 // react and plugins
 import React, { useState } from 'react';
 import axios from 'axios';
-//import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import ReCAPTCHA from 'react-google-recaptcha';
+
+import '../components/css/contactsection.css';
 
 const ContactSection = () => {
     // Handle e-mail submission

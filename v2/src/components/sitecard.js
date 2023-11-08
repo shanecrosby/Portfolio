@@ -2,7 +2,6 @@
 
 // react and plugins
 import React from 'react';
-import './css/sitecard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import BlockContent from '@sanity/block-content-to-react'

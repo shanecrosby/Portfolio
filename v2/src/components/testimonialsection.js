@@ -7,6 +7,7 @@ import VanillaTilt from 'vanilla-tilt';
 
 // components
 import QuoteCardComponent from '../components/QuoteCard';
+import '../components/css/testimonialsection.css';
 
 const TestimonialSection = () => {
 

@@ -7,14 +7,13 @@ import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faBars, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
-//import { Link } from "gatsby";
+import { Link } from "gatsby";
 
 // components
 const AboutSection = React.lazy(() => import('../components/aboutsection'));
 const ProjectSection = React.lazy(() => import( '../components/projectsection'));
 const ContactSection = React.lazy(() => import( '../components/contactsection'));
 const TestimonialSection = React.lazy(() => import( '../components/testimonialsection'));
-const Footer = React.lazy(() => import( '../components/Footer')); // Import your footer component
 
 const IndexPage = () => {
     //Handle the light/dark mode switching
@@ -221,7 +220,13 @@ const IndexPage = () => {
                     <ContactSection />
                 </Suspense>
             </main>
-            <Footer />
+            <footer>
+                <div className="footer-container">
+                    <div className="footer-bar">
+                            <p>&copy; 2023 Shane Crosby. All Rights Reserved. | <Link to="/">Privacy Policy</Link> | <Link to="/">Terms of Service</Link></p>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
