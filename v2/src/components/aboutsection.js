@@ -11,9 +11,10 @@ import '../components/css/aboutsection.css';
 
 const AboutSection = ({ darkMode }) => {
 
+    //aboutBGImageDark: file(relativePath: { eq: "eddie-bugajewski-VDoqMNZdRJQ-unsplash.jpg" }) {
     const data = useStaticQuery(graphql`
         query {
-            aboutBGImageDark: file(relativePath: { eq: "eddie-bugajewski-VDoqMNZdRJQ-unsplash.jpg" }) {
+            aboutBGImageDark: file(relativePath: { eq: "panoramic-3107895.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(
                         width: 2000,

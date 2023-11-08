@@ -33,7 +33,6 @@
     --_handwriting1: 'Shadows Into Light', cursive, sans-serif ;
     --_handwriting2: 'Architects Daughter', cursive, sans-serif;
     --_handwriting3: 'Square Peg', cursive, sans-serif;
-    --_body-font-size: var(--step-0);
 
     /* Transition timings */
     --_transition-time-fast: 0.3s;
@@ -52,6 +51,9 @@
     --step-3: clamp(1.9438rem, 1.8289rem + 0.5103vw, 2.4413rem);
     --step-4: clamp(2.3325rem, 2.1665rem + 0.7378vw, 3.0519rem);
     --step-5: clamp(2.7994rem, 2.565rem + 1.0417vw, 3.815rem);
+
+    --_body-font-size: var(--step-0);
+    font-size: 16px;
 }
 
 /* for debugging
@@ -70,7 +72,6 @@ body {
     font-family: var(--_body-font);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: var(--_body-font-size);
 }
 
 header, h1, h2 {
@@ -99,6 +100,12 @@ a, a:visited {
 
 .body-text {
     text-align: center;
+    max-width: 70vw;
+    margin: auto;
+}
+
+.body-text p {
+    font-size: var(--step--1);
 }
 
 .body-heading {
@@ -266,11 +273,6 @@ a:hover {
         opacity: 1;
     }
 
-.body-text {
-    max-width: 70vw;
-    margin: auto;
-}
-
 /* Hero Section */
 #hero {
     width: auto;
@@ -300,16 +302,16 @@ a:hover {
     }
 
     .main-heading > h1 {
-        font-size: calc(var(--step-5) * 3);
-        margin-top: 20vh;
+        font-size: calc(var(--step-5) * 2);
+        margin-top: 5%;
     }
 
     .main-heading > h2 {
-        font-size: calc(var(--step-3) * 3);
+        font-size: calc(var(--step-3) * 2);
     }
 
     .main-heading {
-        line-height: 1;
+        line-height: 1.1;
         background: linear-gradient(135deg, var(--_gradient-start), var(--_gradient-end));
         background-clip: text;
         -webkit-background-clip: text;
@@ -322,7 +324,7 @@ a:hover {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        width: 50%;
+        width: 80%;
         margin: 5rem auto;
     }
 
@@ -344,15 +346,19 @@ a:hover {
         position: relative;
     }
 
+.footer-container {
+    margin-bottom: 2rem;
+}
+
 .footer-bar {
-    height: 1rem;
+    height: auto;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .footer-bar p {
-    font-size: .8rem;
-    margin: 0; padding: 0;
+    margin: 2rem auto; padding: 0;
 }
 
 /* Reusable elements */

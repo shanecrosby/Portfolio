@@ -3,9 +3,6 @@
 // react and plugins
 import React, { useState } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import '../components/css/contactsection.css';
@@ -88,22 +85,6 @@ const ContactSection = () => {
                         </div>
                         <div id="confirmation-msg" className="hidden">Message received. Thanks!</div>
                     </form>
-                </div>
-                <div className="address-block">
-                    <p>
-                        <b>Shane Crosby</b><br />
-                        <span className="smaller">2 Cortona Grove,<br />
-                        Sinagra, Western Australia, 6065<br /></span>
-                        <b>Phone:</b> +61 407 472 944<br />
-                        <b>ABN:</b> 41781010072<br />
-                    </p>
-                    <ul className='social-icons'>
-                        <a href="https://facebook.com/crosbyshane" aria-label="Facebook" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
-                        <a href="https://twitter.com/crosbyshane" aria-label="Twitter" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
-                        <a href="https://instagram.com/crosbyshane" aria-label="Instagram" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
-                        <a href="https://www.youtube.com/@ShaneCrosby" aria-label="Youtube" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
-                        <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faPhone} /></li></a>
-                    </ul>
                 </div>
             </div>
         </section>

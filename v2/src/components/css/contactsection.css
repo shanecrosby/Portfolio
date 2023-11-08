@@ -3,8 +3,9 @@
 #contact {
     position: relative;
     width: 100%;
-    height: calc(100dvh - 2rem);
+    min-height: 100dvh;
     margin: auto;
+    margin-bottom: 2rem;
 }
 
 .form-container {

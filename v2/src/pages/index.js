@@ -5,9 +5,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faBars, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faBars, faArrowDown, faArrowUp, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
-import { Link } from "gatsby";
 
 // components
 const AboutSection = React.lazy(() => import('../components/aboutsection'));
@@ -226,7 +226,16 @@ const IndexPage = () => {
             <footer>
                 <div className="footer-container">
                     <div className="footer-bar">
-                            <p>&copy; 2023 Shane Crosby. All Rights Reserved. | <Link to="/">Privacy Policy</Link> | <Link to="/">Terms of Service</Link></p>
+                        {/*<div className="address-block">*/}
+                        <p><b>Shane Crosby</b><br /><span className="smaller">2 Cortona Grove, Sinagra, Western Australia, 6065</span> | <b>Phone:</b> +61 407 472 944 | <b>ABN:</b> 41781010072</p>
+                        <ul className='social-icons'>
+                            <a href="https://facebook.com/crosbyshane" aria-label="Facebook" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
+                            <a href="https://twitter.com/crosbyshane" aria-label="Twitter" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
+                            <a href="https://instagram.com/crosbyshane" aria-label="Instagram" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
+                            <a href="https://www.youtube.com/@ShaneCrosby" aria-label="Youtube" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
+                            <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faPhone} /></li></a>
+                        </ul>
+                        {/*</div>*/}
                     </div>
                 </div>
             </footer>
