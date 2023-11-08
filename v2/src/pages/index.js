@@ -211,6 +211,9 @@ const IndexPage = () => {
                     </div>
                     <div className='intro-container'>
                         <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
+                        <aside className='aside'>
+                            <p><strong>Please note:</strong> This website is still under construction and is not optimised for mobile just yet.<br />For best experience please view on a computer web browser.</p>
+                        </aside>
                     </div>
                 </section>
                 <Suspense fallback={<div>Loading section...</div>}>

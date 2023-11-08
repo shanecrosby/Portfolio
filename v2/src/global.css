@@ -319,7 +319,7 @@ a:hover {
 
     .intro-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         text-align: center;
         width: 50%;
@@ -498,6 +498,14 @@ a:hover {
 @keyframes fadeOutAnimation {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+.aside {
+    margin: auto;
+    width: 50vw;
+    text-align: center;
+    font-size: var(--step--2);
+    z-index: 20;
 }
 
 .handwritten {
