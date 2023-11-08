@@ -45,8 +45,8 @@ module.exports = {
         dataset: process.env.SANITY_DATASET,
         token: process.env.SANITY_TOKEN,
         graphqlTag: 'portfolio',
-        watchMode: true,
-        overlayDrafts: true
+        watchMode: false,
+        overlayDrafts: false
       }
     }
   ],
