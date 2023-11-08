@@ -29,7 +29,7 @@ The following additional node packages have been included in this site:
 ## Things Learnt
 * Some gotchas when setting up Sanity integration
 * * Needed to create a .env file to contain the API token and have that excluded from Git
-* * For development, the .env file needs to be .env.development
+* * See [here](https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/) regarding use of .env files
 * * .env syntax: Just use the variable name (all caps from example below), don't use quotes
 * * To plug Sanity into Gatsby this is the gatsby-config.js syntax:
 ```
