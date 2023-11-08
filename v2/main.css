@@ -1,0 +1,21 @@
+:root {
+    --background: #24263f;
+    --foreground: #ffffff77;
+    --highlight: #ffffffbb;
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+a, a:visited {
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+li {
+    list-style: disc ;
+}
