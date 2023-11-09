@@ -8,8 +8,8 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "gatsby clean && gatsby develop",
+    "start": "gatsby develop -H 10.1.1.10 -p 8000",
     "build": "gatsby build",
     "deploy": "gatsby build && gh-pages -d public -b live",
     "serve": "gatsby serve",
@@ -44,6 +44,8 @@
     "react-google-recaptcha": "^3.1.0",
     "react-parallax": "^3.5.1",
     "react-scroll": "^1.9.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "vanilla-tilt": "^1.8.1"
   }
 }
