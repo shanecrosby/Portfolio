@@ -6,9 +6,57 @@
     height: 100vh;
 }
 
+.spacer {
+    display: block;
+    position: relative;
+}
+
 .bio-image {
     border-radius: 50%;
-    width: 200px; height: 200px;
     object-fit: cover;
-    margin: 3rem;
+    margin: 2rem;
+}
+
+/* Mobile view */
+@media (max-width: 425px) {
+    .bio-image {
+        width: 8rem; height: 8rem;
+    }
+
+    .spacer {
+        height: 18vh;
+    }
+}
+
+/* Tablet/medium displays */
+@media (min-width: 426px) and (max-width: 768px) {
+    .bio-image {
+        width: 12rem; height: 12rem;
+    }
+
+    .spacer {
+        height: 35vh;
+    }
+}
+
+/* Laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .bio-image {
+        width: 12rem; height: 12rem;
+    }
+
+    .spacer {
+        height: 35vh;
+    }
+}
+
+/* Large Displays */
+@media (min-width: 1025px) {
+    .bio-image {
+        width: 15rem; height: 15rem;
+    }
+
+    .spacer {
+        height: 38vh;
+    }
 }

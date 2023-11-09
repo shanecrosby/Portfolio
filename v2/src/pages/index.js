@@ -211,9 +211,6 @@ const IndexPage = () => {
                     </div>
                     <div className='intro-container'>
                         <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
-                        <aside className='aside'>
-                            <p><strong>Please note:</strong> This website is still under construction and is not optimised for mobile just yet.<br />For best experience please view on a computer web browser.</p>
-                        </aside>
                     </div>
                 </section>
                 <Suspense fallback={<div>Loading section...</div>}>
@@ -225,18 +222,14 @@ const IndexPage = () => {
             </main>
             <footer>
                 <div className="footer-container">
-                    <div className="footer-bar">
-                        {/*<div className="address-block">*/}
-                        <p><b>Shane Crosby</b><br /><span className="smaller">2 Cortona Grove, Sinagra, Western Australia, 6065</span> | <b>Phone:</b> +61 407 472 944 | <b>ABN:</b> 41781010072</p>
-                        <ul className='social-icons'>
-                            <a href="https://facebook.com/crosbyshane" aria-label="Facebook" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
-                            <a href="https://twitter.com/crosbyshane" aria-label="Twitter" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
-                            <a href="https://instagram.com/crosbyshane" aria-label="Instagram" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
-                            <a href="https://www.youtube.com/@ShaneCrosby" aria-label="Youtube" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
-                            <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faPhone} /></li></a>
-                        </ul>
-                        {/*</div>*/}
-                    </div>
+                    <h3>Shane Crosby</h3><p>2 Cortona Grove, Sinagra, WA, 6065 <br /><b>Phone:</b> +61 407 472 944 | <b>ABN:</b> 41781010072</p>
+                    <ul className='social-icons'>
+                        <a href="https://facebook.com/crosbyshane" aria-label="Facebook" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faFacebook} /></li></a>
+                        <a href="https://twitter.com/crosbyshane" aria-label="Twitter" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faXTwitter} /></li></a>
+                        <a href="https://instagram.com/crosbyshane" aria-label="Instagram" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faInstagram} /></li></a>
+                        <a href="https://www.youtube.com/@ShaneCrosby" aria-label="Youtube" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faYoutube} /></li></a>
+                        <a href="tel:+61407472944" title="+61407472944" aria-label="Telephone" target="_blank" rel="noreferrer"><li><FontAwesomeIcon icon={faPhone} /></li></a>
+                    </ul>
                 </div>
             </footer>
         </div>

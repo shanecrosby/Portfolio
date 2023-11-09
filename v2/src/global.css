@@ -11,20 +11,22 @@
     /* Primary Colours - Light Mode */
     --lm_primary-colour: rgb(7, 3, 66);
     --lm_secondary-colour: rgb(245, 195, 58);
-    --lm_background-colour: rgb(233, 238, 255);
+    --lm_background-colour: rgb(255, 255, 255);
     --lm_light-grey-solid: #ECF0F1;
     --lm_shadow-colour: rgba(0,0,0,.5);
 
     --_recaptcha_bg: #f9f9f9; /* This is set by Google and seemingly can't be overridden */
     
     /* Colours with transparency */
-    --_light-grey: rgba(255, 255, 255, 0.2);
-    --lm_background-colour-transparent: rgba(233, 238, 255, 0.75);
+    --_light-grey: rgba(255, 255, 255, 0.3);
+    --lm_background-colour-transparent: rgba(233, 238, 255, 0.9);
     --dm_background-colour-transparent: rgba(29, 41, 63, 0.75);
 
     /* Gradient Colours */
-    --_gradient-start: rgba(0,187,255,1) 0%; 
-    --_gradient-end: rgb(255, 0, 85) 100%;
+    --dm_gradient-start: rgba(0,187,255,1) 0%; 
+    --dm_gradient-end: rgb(255, 0, 85) 100%;
+    --lm_gradient-start: rgb(0, 38, 255) 0%;
+    --lm_gradient-end: rgb(255, 0, 106) 100%;
 
     --_debug: rgba(255, 0, 0, 0);
 
@@ -43,14 +45,14 @@
 
 
     /* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1920,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-    --step--2: clamp(0.7813rem, 0.7769rem + 0.0192vw, 0.8rem);
-    --step--1: clamp(0.9375rem, 0.9231rem + 0.0641vw, 1rem);
-    --step-0: clamp(1.125rem, 1.0962rem + 0.1282vw, 1.25rem);
-    --step-1: clamp(1.35rem, 1.301rem + 0.2179vw, 1.5625rem);
-    --step-2: clamp(1.62rem, 1.5431rem + 0.3417vw, 1.9531rem);
-    --step-3: clamp(1.9438rem, 1.8289rem + 0.5103vw, 2.4413rem);
-    --step-4: clamp(2.3325rem, 2.1665rem + 0.7378vw, 3.0519rem);
-    --step-5: clamp(2.7994rem, 2.565rem + 1.0417vw, 3.815rem);
+    --step--2: clamp(0.5206rem, 0.4008rem + 0.5327vw, 1.04rem);
+    --step--1: clamp(0.625rem, 0.4692rem + 0.6923vw, 1.3rem);
+    --step-0: clamp(0.75rem, 0.5481rem + 0.8974vw, 1.625rem);
+    --step-1: clamp(0.9rem, 0.6389rem + 1.1603vw, 2.0313rem);
+    --step-2: clamp(1.08rem, 0.7432rem + 1.4968vw, 2.5394rem);
+    --step-3: clamp(1.2963rem, 0.863rem + 1.9256vw, 3.1738rem);
+    --step-4: clamp(1.555rem, 0.9983rem + 2.4744vw, 3.9675rem);
+    --step-5: clamp(1.8663rem, 1.1525rem + 3.1724vw, 4.9594rem);
 
     --_body-font-size: var(--step-0);
     font-size: 16px;
@@ -67,6 +69,10 @@ body {
     margin: 0;
 }
 
+main {
+    margin: 0; padding: 0;
+}
+
 /* Baseline text setup */
 body {
     font-family: var(--_body-font);
@@ -74,7 +80,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-header, h1, h2 {
+header, h1, h2, h3 {
     margin: 0;
     padding: 0;
 }
@@ -94,23 +100,17 @@ a, a:visited {
 }
 
 .section-title {
-    font-size: var(--step--2);
     text-align: center;
 }
 
 .body-text {
-    text-align: center;
-    max-width: 70vw;
+    text-align: justify;
     margin: auto;
-}
-
-.body-text p {
-    font-size: var(--step--1);
 }
 
 .body-heading {
     font-size: var(--step-5);
-    line-height: 1.25;
+    line-height: 1.1;
     margin: 0;
 }
 
@@ -124,6 +124,11 @@ a, a:visited {
     --inv-pri-colour: var(--dm_background-colour);
     --inv-sec-colour: var(--lm_secondary-colour);
     --inv-bg-colour: var(--dm_primary-colour);
+
+    --_gradient-start: var(--dm_gradient-start);
+    --_gradient-end: var(--dm_gradient-end);
+    
+
 }
 
 .light-mode {
@@ -135,6 +140,9 @@ a, a:visited {
     --inv-pri-colour: var(--dm_primary-colour);
     --inv-sec-colour: var(--dm_secondary-colour);
     --inv-bg-colour: var(--dm_background-colour);
+
+    --_gradient-start: var(--lm_gradient-start);
+    --_gradient-end: var(--lm_gradient-end);
 }
 
 /* Universal transition setup */
@@ -154,8 +162,6 @@ body, h1, h2, h3, a, li, li > a, .control-button {
 body {
     scrollbar-width: 5px;
     scrollbar-gutter: stable;
-    scrollbar-base-color: var(--background-colour);
-    scrollbar-track-color: var(--primary-colour);
 }
 
 body, li {
@@ -291,8 +297,15 @@ a:hover {
         position: absolute;
         width: 100%;
         top: 0; bottom: 0; left: 0; right: 0;
-        opacity: 0.5;
         transform: scale(1.12), translate3d(1, 0, 0);
+    }
+
+    .dark-mode .hero-bgImage-container {
+        opacity: 0.5;
+    }
+
+    .light-mode .hero-bgImage-container {
+        opacity: 0.3;
     }
 
     .hero {
@@ -313,7 +326,7 @@ a:hover {
     .main-heading {
         line-height: 1.1;
         background: linear-gradient(135deg, var(--_gradient-start), var(--_gradient-end));
-        background-clip: text;
+        background-clip: inherit;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         filter: drop-shadow(5px 5px 5px var(--shadow-colour));
@@ -324,8 +337,6 @@ a:hover {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        width: 80%;
-        margin: 5rem auto;
     }
 
     .intro-p {
@@ -346,19 +357,19 @@ a:hover {
         position: relative;
     }
 
-.footer-container {
-    margin-bottom: 2rem;
+footer {
+    display: flex;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 
-.footer-bar {
-    height: auto;
+.footer-container {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.footer-bar p {
-    margin: 2rem auto; padding: 0;
+    text-align: center;
 }
 
 /* Reusable elements */
@@ -508,20 +519,13 @@ a:hover {
 
 .aside {
     margin: auto;
-    width: 50vw;
     text-align: center;
-    font-size: var(--step--2);
+    position: relative;
     z-index: 20;
 }
 
 .handwritten {
     font-family: var(--_handwriting3);
-}
-
-.spacer {
-    height: 45vh;
-    display: block;
-    position: relative;
 }
 
 .quote {
@@ -591,7 +595,148 @@ a:hover {
 }
 
 /* Mobile view */
-@media (max-width: 768px) { }
+@media (max-width: 425px) {
 
-/* Medium Displays */
-@media (max-width: 1200px) { }
+    .page-controls, .nav-container {
+        display: none;
+    }
+
+    .body-heading h1 {
+        font-size: var(--step--2);
+    }
+
+    .intro-container {
+        width: 100%;
+        margin: 3rem auto;
+    }
+
+    .intro-container p {
+        font-size: var(--step-2);
+    }
+
+    .aside {
+        font-size: var(--step--1);
+        width: 70vw;
+    }
+
+    .body-heading h1 {
+        font-size: var(--step-4);
+    }
+
+    .body-text {
+        max-width: 90%;
+        padding: 2rem;
+    }
+    
+    .body-text p {
+        font-size: var(--step-0);
+    }
+}
+
+/* Tablet/medium displays */
+@media (min-width: 426px) and (max-width: 810px) {
+
+    h3 {
+        font-size: var(--step-1);
+        line-height: 1;
+        font-weight: 300;
+    }
+
+    .page-controls, .nav-container {
+        display: none;
+    }
+
+    .body-heading h1 {
+        font-size: var(--step--2);
+    }
+
+    .intro-container {
+        width: 100%;
+        margin: 3rem auto;
+    }
+
+    .intro-container p {
+        font-size: var(--step-2);
+    }
+
+    .aside {
+        font-size: var(--step--1);
+        width: 70vw;
+    }
+
+    .body-text {
+        max-width: 90vw;
+        padding: 3rem;
+    }
+    
+    .body-text p {
+        font-size: var(--step--1);
+    }
+
+}
+
+/* Laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h3 {
+        font-size: var(--step-0);
+        line-height: 1;
+        font-weight: 300;
+    }
+
+    .intro-container {
+        width: 80%;
+        margin: 3rem auto;
+    }
+
+    #contact .body-container {
+        transform: translateY(-5rem);
+    }
+
+    .body-heading h1 {
+        font-size: var(--step-5);
+        margin-bottom: 2rem auto;
+        padding: 2rem;
+    }
+
+    .body-text {
+        max-width: 80%;
+    }
+    
+    .body-text p {
+        font-size: var(--step--1);
+    }
+
+}
+
+/* Large Displays */
+@media (min-width: 1025px) {
+    
+    h3 {
+        font-size: var(--step-1);
+        line-height: 1;
+        font-weight: 300;
+    }
+    
+    .intro-container {
+        width: 80%;
+        margin: 3rem auto;
+    }
+
+    .aside {
+        font-size: var(--step--2);
+        width: 50vw;
+    }
+
+    .body-heading h1 {
+        font-size: var(--step-5);
+    }
+
+    .body-text {
+        max-width: 60vw;
+    }
+    
+    .body-text p {
+        font-size: var(--step--1);
+    }
+
+}

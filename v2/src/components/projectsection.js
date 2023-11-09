@@ -38,9 +38,9 @@ const ProjectSection = ({ projects, background }) => {
         <section id="projects" name="projects">
             <div className="bg-Image-container">
                 { /* Background Image from Sanity */}
-                <a href={currentProject.url} target='_blank' rel='noreferrer'><GatsbyImage key={currentProject.id} image={bgImage} alt={currentProject.caption} className={`bgImage ${transitioning ? 'fade-out' : 'fade-in'}`} /></a>
+                <a href={currentProject.url} target='_blank' rel='noreferrer'><GatsbyImage key={currentProject.id} image={bgImage} alt={currentProject.caption} className={`bgImage ${transitioning ? 'fade-out' : 'fade-in'} projects-bgImage`} /></a>
                 {/* Default background image to appear during project cross-fade */}
-                <BgImage key='static-projectBG'image={background} className={`bgImage section-bg`}>&nbsp;</BgImage>
+                <BgImage key='static-projectBG'image={background} className={`bgImage section-bg projects-bgImage`}>&nbsp;</BgImage>
             </div>
             <div className="body-container">
                 <div className="body-heading text-bg"><h1>Projects</h1></div>

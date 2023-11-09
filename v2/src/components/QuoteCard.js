@@ -4,12 +4,12 @@ import BlockContent from '@sanity/block-content-to-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
-const QuoteCardComponent = ({ quote }) => {
+const QuoteCardComponent = ({ quote, additionalClass }) => {
 
     return (
         <div className="quote-card">
             <div className="quote-inner">
-                <div className="quote">
+                <div className={`${additionalClass}`}>
                     <FontAwesomeIcon icon={faQuoteLeft} className='left' />
                     <BlockContent blocks={quote._rawQuote} className='block-content' />
                     <FontAwesomeIcon icon={faQuoteRight} className='right'/>

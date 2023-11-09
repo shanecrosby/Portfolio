@@ -3,18 +3,15 @@
 #contact {
     position: relative;
     width: 100%;
-    min-height: 100dvh;
+    height: fit-content;
     margin: auto;
-    margin-bottom: 2rem;
 }
 
 .form-container {
     background-color: var(--_recaptcha_bg);
     color: var(--lm_primary-colour);
     padding: 1rem;
-    width: 50vw;
     margin: auto;
-    height: fit-content;
     transition: background-color var(--_transition-time), color var(--_transition-time);
 
     border: 1px solid;
@@ -94,9 +91,72 @@ input[type=text]::placeholder, input[type=email]::placeholder {
     display: block;
     width: fit-content;
     height: fit-content;
-    margin: 1rem;
+    margin: 1rem auto;
 }
 
 #confirmation-msg {
     color: green;
+}
+
+/* Mobile view */
+@media (max-width: 425px) {
+    .form-container {
+        height: auto;
+        border-radius: 0;
+        padding: 1rem;
+    }
+
+    .form-buttons {
+        margin: 0; padding: 0;
+    }
+
+    .two-column-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 1rem;
+        padding: 1rem;
+        width: 90%;
+    }
+}
+
+/* Tablet/medium displays */
+@media (min-width: 426px) and (max-width: 810px) {
+    .form-container {
+        height: auto;
+        border-radius: 0;
+    }
+    
+    .form-buttons {
+        margin: 0; padding: 0;
+    }
+
+    .two-column-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 1rem;
+        padding: 1rem;
+        width: 70%;
+        margin: auto;
+    }
+}
+
+/* Laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #contact {
+        height: 80dvh;
+    }
+
+    .form-container {
+        width: 70vw; height: fit-content;
+    }
+
+}
+
+/* Large Displays */
+@media (min-width: 1025px) {
+    .form-container {
+        width: 50vw; height: fit-content;
+    }
 }

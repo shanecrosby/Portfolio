@@ -81,8 +81,8 @@ const ContactSection = () => {
                         </div>
                         <div className="form-buttons">
                             <button id='submitbutton' type="submit" className='grid-column-one hidden' disabled>Send</button><input type="reset" value="Clear"/>
-                            <ReCAPTCHA className="g-recaptcha" sitekey="6Lf1dAcTAAAAAEbFBDmhsy5QG9T0ICk-R-O-WMVK" onChange={enableSubmit} />
                         </div>
+                        <ReCAPTCHA className="g-recaptcha" sitekey="6Lf1dAcTAAAAAEbFBDmhsy5QG9T0ICk-R-O-WMVK" onChange={enableSubmit} />
                         <div id="confirmation-msg" className="hidden">Message received. Thanks!</div>
                     </form>
                 </div>

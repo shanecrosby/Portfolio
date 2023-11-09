@@ -4,6 +4,9 @@
 import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import VanillaTilt from 'vanilla-tilt';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'
 
 // components
 import QuoteCardComponent from '../components/QuoteCard';
@@ -36,29 +39,39 @@ const TestimonialSection = () => {
 
     // Fancy tilt card effect
     useEffect(() => {
-        VanillaTilt.init(document.querySelectorAll(".quote-card"), {
+        VanillaTilt.init(document.querySelectorAll(".carousel-container"), {
             max: 5,
             speed: 1000,
-            glare: true,
-            'max-glare': 0.50,
+            glare: false,
             gyroscope: true
         });
     })
-    
+
+    // Slider settings
+    const settings = {
+        dots: true,
+        fade: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
     return (
         <section id="testimonials" name="testimonials">
             <div className="body-container">
                 <div className="body-heading"><h1>Testimonials</h1></div>
                 <p>I've been fortunate to work with some incredible and lovely people over the years.<br />These are some nice things some of my former colleagues have said about me.</p>
-                <div className="one-column-flex">
-                    <div className="three-columns">
-                        {/* Quote site card component */
-                            shuffledCards.map(edge => {
-                                const card = edge.node;
-                                return <QuoteCardComponent key={card.id} quote={card} />;
-                            })
-                        }
-                    </div>
+                <div className="carousel-container">
+                    <Slider {...settings}>
+                        {shuffledCards.map((edge, index) => {
+                            const card = edge.node;
+                            const cardClass = `quote style-${index % 3 + 1}`;
+                            return (
+                                <QuoteCardComponent key={card.id} quote={card} additionalClass={cardClass} />
+                            );
+                        })}
+                    </Slider>
                 </div>
             </div>
         </section>
