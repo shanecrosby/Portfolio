@@ -34,7 +34,7 @@
     --_body-font: 'Montserrat', 'Verdana', 'Optima', sans-serif;
     --_handwriting1: 'Shadows Into Light', cursive, sans-serif ;
     --_handwriting2: 'Architects Daughter', cursive, sans-serif;
-    --_handwriting3: 'Square Peg', cursive, sans-serif;
+    --_handwriting3: 'Handlee', cursive, sans-serif;
 
     /* Transition timings */
     --_transition-time-fast: 0.3s;
@@ -425,7 +425,7 @@ footer {
         height: 100dvh;
         top: 0; bottom: 0; left: 0; right: 0;
         z-index: -10;
-        transition: opacity var(--_transition-time) ease-in-out;
+        /*transition: opacity var(--_transition-time-fast) ease-in-out;*/
     }
 
     /* Grid/Flex columns elements*/
@@ -496,13 +496,13 @@ footer {
 }
 
 .fade-in {
-    animation: fadeInAnimation ease var(--_transition-time-slow);
+    animation: fadeInAnimation ease var(--_transition-time);
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
 .fade-out {
-    animation: fadeOutAnimation ease var(--_transition-time-slow);
+    animation: fadeOutAnimation ease var(--_transition-time);
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
