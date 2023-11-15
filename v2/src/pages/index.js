@@ -109,10 +109,20 @@ const IndexPage = () => {
                 }
             }
 
-            logoImage: file(relativePath: { eq: "SC-Colour-Wide-Dark.png" }) {
+            logoImageBig: file(relativePath: { eq: "SC-Colour-Wide-Dark.png" }) {
                 childImageSharp {
                     gatsbyImageData(
                         width: 1200,
+                        placeholder: NONE, 
+                        formats: [AUTO, WEBP, AVIF]
+                    )
+                }
+            }
+
+            logoImageSml: file(relativePath: { eq: "SC-Colour-Vert-Dark.png" }) {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 600,
                         placeholder: NONE, 
                         formats: [AUTO, WEBP, AVIF]
                     )
@@ -151,7 +161,8 @@ const IndexPage = () => {
             }
         }
     `);
-    const logoImage = getImage(data.logoImage);
+    const logoImageBig = getImage(data.logoImageBig);
+    const logoImageSml = getImage(data.logoImageSml);
     const heroBGImage = getImage(data.heroBGImage);
     const projectsBGImage = getImage(data.projectsBGImage);
     const projects = data.allSanityWebsite.edges.map(edge => edge.node);
@@ -196,7 +207,6 @@ const IndexPage = () => {
                                 toggleMenu();
                             }
                         }} role="button" tabIndex="0">
-                    <div className='logo'>{/*<GatsbyImage image={getImage(data.logoImage)} alt="Shane Crosby - Web Designer" className="logo-img" />*/}</div>
                     <div className="control-button" onTouchEnd={toggleMenu}>
                         <FontAwesomeIcon icon={faBars} />
                     </div>
@@ -219,7 +229,8 @@ const IndexPage = () => {
                     </div>
                     <div className='hero main-heading'>
                         {/*<h1 className='main-heading'>Shane Crosby</h1><h2 className='main-heading'>Web Designer</h2>*/}
-                        <GatsbyImage image={logoImage} alt="Shane Crosby - Web Designer" className='main-heading' />
+                        <GatsbyImage image={logoImageBig} alt="Shane Crosby - Web Designer" className='main-heading wide-logo' />
+                        <GatsbyImage image={logoImageSml} alt="Shane Crosby - Web Designer" className='main-heading square-logo' />
                     </div>
                     <div className='intro-container'>
                         <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
