@@ -21,7 +21,7 @@ const SiteCardComponent = ({ examplesite, transitioning }) => {
                 <div className="testimonial-text">
                     <div className="quote">
                         <FontAwesomeIcon icon={faQuoteLeft} className='left' />
-                        <BlockContent blocks={examplesite._rawTestimonial} className='justify handwritten' />
+                        <BlockContent blocks={examplesite._rawTestimonial} className='justify smaller' />
                         <FontAwesomeIcon icon={faQuoteRight} className='right'/>
                     </div>
                 </div>
