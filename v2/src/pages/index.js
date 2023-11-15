@@ -2,7 +2,7 @@
 // react and plugins
 import React, { useEffect, useState, Suspense } from 'react';
 import { graphql, useStaticQuery } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb, faBars, faArrowDown, faArrowUp, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -109,6 +109,16 @@ const IndexPage = () => {
                 }
             }
 
+            logoImage: file(relativePath: { eq: "SC-Colour-Wide-Dark.png" }) {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 1200,
+                        placeholder: NONE, 
+                        formats: [AUTO, WEBP, AVIF]
+                    )
+                }
+            }
+
             projectsBGImage: file(relativePath: { eq: "ProjectSection-Background.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(
@@ -141,6 +151,7 @@ const IndexPage = () => {
             }
         }
     `);
+    const logoImage = getImage(data.logoImage);
     const heroBGImage = getImage(data.heroBGImage);
     const projectsBGImage = getImage(data.projectsBGImage);
     const projects = data.allSanityWebsite.edges.map(edge => edge.node);
@@ -207,7 +218,8 @@ const IndexPage = () => {
                         <BgImage image={heroBGImage} className="hero-bgImage">&nbsp;</BgImage>
                     </div>
                     <div className='hero main-heading'>
-                        <h1 className='main-heading'>Shane Crosby</h1><h2 className='main-heading'>Web Designer</h2>
+                        {/*<h1 className='main-heading'>Shane Crosby</h1><h2 className='main-heading'>Web Designer</h2>*/}
+                        <GatsbyImage image={logoImage} alt="Shane Crosby - Web Designer" className='main-heading' />
                     </div>
                     <div className='intro-container'>
                         <p className='intro-p'>My name is Shane and I like to make beautiful and functional websites.</p>
