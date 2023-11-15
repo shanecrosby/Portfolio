@@ -323,6 +323,10 @@ a:hover {
         font-size: calc(var(--step-3) * 2);
     }
 
+    .main-heading img {
+        margin-top: 5%;
+    }
+
     .main-heading {
         line-height: 1.1;
         background: linear-gradient(135deg, var(--_gradient-start), var(--_gradient-end));
@@ -330,6 +334,7 @@ a:hover {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         filter: drop-shadow(5px 5px 5px var(--shadow-colour));
+
     }
 
     .intro-container {
@@ -400,6 +405,28 @@ footer {
 
     .mode-button {
         left: 0;
+    }
+
+    .link-button {
+        border-radius: 2rem;
+        border: 1px solid var(--lm_primary-colour);
+        background-color: var(--dm_background-colour);
+        color: var(--_recaptcha_bg);
+        font: var(--_body-font) var(--_body-font-size);
+        width: fit-content;
+        padding: 1rem;
+        margin: 0 auto;
+        font-style: normal;
+        transition: border var(--_transition-time-fast), 
+            color var(--_transition-time-fast), 
+            background-color var(--_transition-time-fast),
+            opacity var(--_transition-time) ease-in-out;
+    }
+    
+    .link-button:hover { 
+        background-color: var(--lm_secondary-colour);
+        color: var(--inv-pri-colour);
+        border: 1px solid var(--dm_background-colour);
     }
 
     #scrollup-button {
