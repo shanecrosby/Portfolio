@@ -660,7 +660,7 @@ footer {
     }
 
     .wide-logo {
-        display: none;
+        display: none !important;
     }
 
     .square-logo {
@@ -709,7 +709,7 @@ footer {
     }
 
     .wide-logo {
-        display: none;
+        display: none !important;
     }
 
     .square-logo {
@@ -754,7 +754,7 @@ footer {
     }
 
     .square-logo {
-        display: none;
+        display: none !important;
     }
 
 }
@@ -795,7 +795,7 @@ footer {
     }
 
     .square-logo {
-        display: none;
+        display: none !important;
     }
 
 }
