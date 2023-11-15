@@ -25,6 +25,9 @@
 
     border: 1px solid;
     border-color: var(--_border-colour);
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .quote-inner {

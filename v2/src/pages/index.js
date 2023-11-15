@@ -114,7 +114,7 @@ const IndexPage = () => {
                     gatsbyImageData(
                         width: 2000,
                         quality: 50,
-                        placeholder: BLURRED, 
+                        placeholder: NONE, 
                         formats: [AUTO, WEBP, AVIF],
                         webpOptions: {quality: 70}
                     )

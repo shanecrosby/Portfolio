@@ -33,6 +33,10 @@ const ProjectSection = ({ projects, background }) => {
         // Get the current project and testimonials fields
         const currentProject = projects[currentIndex];
         const bgImage = getImage(currentProject.thumbnail.asset);
+        const placeholderImgUrl = 'https://github.com/shanecrosby/Portfolio/blob/master/v2/src/images/ProjectSection-Background.jpg'
+        const bgImageStyle = {
+            backgroundImage: 'url(' + placeholderImgUrl + ')'
+        };
 
     return (
         <section id="projects" name="projects">
@@ -40,7 +44,7 @@ const ProjectSection = ({ projects, background }) => {
                 { /* Background Image from Sanity */}
                 <a href={currentProject.url} target='_blank' rel='noreferrer'><GatsbyImage key={currentProject.id} image={bgImage} alt={currentProject.caption} className={`bgImage ${transitioning ? 'fade-out' : 'fade-in'} projects-bgImage`} /></a>
                 {/* Default background image to appear during project cross-fade */}
-                <BgImage key='static-projectBG'image={background} className={`bgImage section-bg projects-bgImage`}>&nbsp;</BgImage>
+                <BgImage key='static-projectBG'image={background} className={`bgImage section-bg projects-bgImage`} style={bgImageStyle}>&nbsp;</BgImage>
             </div>
             <div className="body-container">
                 <div className="body-heading text-bg"><h1>Projects</h1></div>

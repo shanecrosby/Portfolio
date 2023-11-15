@@ -42,8 +42,7 @@ const TestimonialSection = () => {
         VanillaTilt.init(document.querySelectorAll(".carousel-container"), {
             max: 5,
             speed: 1000,
-            glare: false,
-            gyroscope: true
+            glare: false
         });
     })
 
