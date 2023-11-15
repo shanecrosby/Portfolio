@@ -28,6 +28,7 @@
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    z-index: 50;
 }
 
 .quote-inner {
@@ -169,7 +170,7 @@
     }
     
     .style-3 {
-        font-size: var(--step-1);
+        font-size: var(--step-0);
     }
 
 }
@@ -195,7 +196,7 @@
     }
     
     .style-3 {
-        font-size: var(--step-2);
+        font-size: var(--step-1);
     }
 
     .quote-name {
@@ -228,7 +229,7 @@
     }
     
     .style-3 {
-        font-size: var(--step-2);
+        font-size: var(--step-1);
     }
 
     .quote-name {

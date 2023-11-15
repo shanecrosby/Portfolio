@@ -38,12 +38,16 @@ const TestimonialSection = () => {
     }, [data.allSanityQuotation.edges]);
 
     // Fancy tilt card effect
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
     useEffect(() => {
-        VanillaTilt.init(document.querySelectorAll(".carousel-container"), {
-            max: 5,
-            speed: 1000,
-            glare: false
-        });
+        if(!isSafari) {
+            VanillaTilt.init(document.querySelectorAll(".carousel-container"), {
+                max: 5,
+                speed: 1000,
+                glare: false
+            });
+        }
     })
 
     // Slider settings

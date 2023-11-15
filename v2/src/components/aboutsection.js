@@ -53,17 +53,21 @@ const AboutSection = ({ darkMode }) => {
     const aboutBGImageDark = getImage(data.aboutBGImageDark);
     const aboutBGImageLight = getImage(data.aboutBGImageLight);
     const shanePortraitImg = getImage(data.shanePortrait);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
 
     // Fancy tilt card effect
     useEffect(() => {
-        VanillaTilt.init(document.querySelectorAll(".bio-image"), {
-            max: 20,
-            perspective: 2000,
-            speed: 1000,
-            glare: true,
-            'max-glare': 0.20,
-            gyroscope: true
-        });
+        if (!isSafari) {
+            VanillaTilt.init(document.querySelectorAll(".bio-image"), {
+                max: 20,
+                perspective: 2000,
+                speed: 1000,
+                glare: true,
+                'max-glare': 0.20,
+                gyroscope: true
+            });
+        }
     })
 
     return (
@@ -76,10 +80,9 @@ const AboutSection = ({ darkMode }) => {
                 <div className="spacer"><GatsbyImage image={shanePortraitImg} className='bio-image' /></div>
                 <div className="text-bg">
                     <div className="body-text">
-                        <p>I was born and raised in Perth, Western Australia.</p>
-                        <p>Having devoted over 18 years to a career in the IT service industry, where my primary focus was user support and systems administration, my fascination with web design has always simmered beneath the surface. From as far back as my primary school days of the late 90s when I was first introduced to rudimentary HTML coding, this casual interest has slowly grown through occasional projects within the various client organisations I worked with in my previous role, culminating in a full-fledged dive into front-end web development in 2023.</p>
-                        <p>Armed with a robust skill set in Javascript (React, Gatsby, ThreeJS), HTML5, CSS, and platforms like WordPress, Squarespace, and Wix, I am ready to help you build your business or social organisation with a well-designed and functional website. My passion for refined typography and meticulous attention to detail are the fine threads that sew together engaging and user-centric web experiences.</p>
-                        <p>In my spare time I help run the <a href="https://wasda.au">Western Australia Social Dancers Association (WASDA)</a> - a smooth-jive social dance club. I also love spending time with my three adorable nephews.</p>
+                    <p>Hi there! I'm a Perth native with a lifelong passion for technology and creativity. My journey in the IT world has spanned over 18 years, where I honed my skills in user support and systems administration, however the allure of web design, a spark ignited during my school days dabbling in basic HTML, never faded. It's this passion that led me to fully embrace web development in 2023.</p>
+                    <p>Today, I blend my technical expertise in Javascript (React, Gatsby, ThreeJS), HTML5, CSS, and various web platforms with a love for elegant design. Whether you're building a business or a community, I'm here to craft a website that's not just functional, but also a joy to use and explore. My focus? Creating sites that resonate with users, thanks to my eye for typography and detail.</p>
+                    <p>Outside of work, I'm actively involved in <a href="https://wasda.au">WASDA</a> (WA Social Dancers Association) - a smooth-jive social dance club. I also love spending time with my extended family.</p>
                     </div>
                 </div>
             </div>
