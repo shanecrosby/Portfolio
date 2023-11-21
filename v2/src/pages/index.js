@@ -10,6 +10,7 @@ import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/fre
 import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
 
 // components
+import { SEO } from '../components/seo'
 const AboutSection = React.lazy(() => import('../components/aboutsection'));
 const ProjectSection = React.lazy(() => import( '../components/projectsection'));
 const ContactSection = React.lazy(() => import( '../components/contactsection'));
@@ -260,3 +261,7 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => {
+    <SEO />
+}
