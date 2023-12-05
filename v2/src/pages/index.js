@@ -154,7 +154,12 @@ const IndexPage = () => {
                         caption
                         thumbnail {
                             asset {
-                                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED, width: 2000)
+                                gatsbyImageData(
+                                    fit: FILLMAX, 
+                                    placeholder: NONE, 
+                                    width: 2000,
+                                    formats: [AUTO, WEBP, AVIF]
+                                )
                             }
                         }
                     }
