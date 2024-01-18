@@ -5,7 +5,7 @@ Some sample sites for fictitious small businesses to demonstrate my front-end we
 * [Bella Bakes](https://bellabakes.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/bellabakes)
 * [Fit Fusion Gym (WIP)](https://fitfusion.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/FitFusion)
 * [Green Thumb Landscaping (WIP)](https://greenthumb.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/GreenThumb)
-* [Inkwell Stationers (WIP)](https://inkwell.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/Inkwell)
+* [Inkwell Stationers](https://inkwell.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/Inkwell)
 * [Urban Bites Food Tours (WIP)](https://urbanbites.shanecrosby.com) [(GitHub)](https://github.com/shanecrosby/UrbanBites)
 
 # Technical stuff
