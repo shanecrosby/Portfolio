@@ -4,7 +4,9 @@
     position: relative;
     width: 100%;
     height: fit-content;
+    min-height: 85dvh;
     margin: auto;
+    margin-top: 30px;
 }
 
 .form-container {

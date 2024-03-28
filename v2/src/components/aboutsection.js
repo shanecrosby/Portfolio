@@ -73,11 +73,11 @@ const AboutSection = ({ darkMode }) => {
     return (
         <section id="about" name="about">
             <div className="bg-Image-container">
-                <BgImage image={darkMode ? aboutBGImageDark : aboutBGImageLight} className='bgImage'>&nbsp;</BgImage>
+                <BgImage image={darkMode ? aboutBGImageDark : aboutBGImageLight} className='bgImage' alt='' >&nbsp;</BgImage>
             </div>
             <div className="body-container">
                 <div className="body-heading"><h1>Who am I?</h1></div>
-                <div className="spacer"><GatsbyImage image={shanePortraitImg} className='bio-image' /></div>
+                <div className="spacer"><GatsbyImage image={shanePortraitImg} className='bio-image' alt='Portait of Shane Crosby' /></div>
                 <div className="text-bg">
                     <div className="body-text">
                     <p>Hi there! I'm a Perth native with a lifelong passion for technology and creativity. My journey in the IT world has spanned over 18 years, where I honed my skills in user support and systems administration, however the allure of web design, a spark ignited during my school days dabbling in basic HTML, never faded. It's this passion that led me to fully embrace web development in 2023.</p>

@@ -132,7 +132,7 @@
 /* Tablet/medium displays */
 @media (min-width: 426px) and (max-width: 810px) {
     #testimonials {
-        min-height: 75dvh;
+        min-height: 50%;
     }
 
     .carousel-container {
