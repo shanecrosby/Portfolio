@@ -129,6 +129,7 @@
 @media (max-width: 425px) {
     #packages {
         height: 100dvh;
+        margin-bottom: 72rem;
     }
 
     .body-container > p {
@@ -138,7 +139,7 @@
 
     .package-card {
         width: auto;
-        min-width: unset;
+        max-width: 100%;
         padding: 0; margin: 10px;
     }
 
@@ -181,12 +182,17 @@
 @media (min-width: 811px) and (max-width: 1280px) {
     #packages {
         min-height: 100vh;
-        margin-bottom: 20rem;
+        margin-bottom: 10rem;
     }
 
     .package-container {
         flex-wrap: wrap;
-        flex-direction: column;
+        flex-direction: row;
+    }
+
+    .package-card {
+        width: auto;
+        max-width: 100%;
     }
 
     .package-name {
