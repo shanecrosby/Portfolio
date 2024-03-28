@@ -39,7 +39,7 @@ const PackagesSection = ({ darkMode }) => {
                 }
             }
 
-            allSanityPackages(sort: {fields: price, order: ASC}) {
+            allSanityPackages(sort: {price: ASC}) {
                 edges {
                     node {
                         id
