@@ -1,0 +1,215 @@
+/* ./src/components/css/packagesection.css */
+
+/* Packages Section */
+
+#packages {
+    position: relative;
+    margin: auto;
+    margin-bottom: 20rem;
+    height: fit-content;
+    min-height: 100dvh;
+}
+
+.pkgBgImage {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.pkg-bgImage-container {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+.package-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+    margin: auto;
+    gap: 30px;
+}
+
+.package-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.package-card {
+    width: fit-content;
+    max-width: 33%;
+    flex: 1;
+    flex-basis: calc(33.333% - 40px);
+    color: var(--inv-pri-colour);
+    background: rgb(0,187,255);
+    background: linear-gradient(135deg, var(--_gradient-start), var(--_gradient-end));
+    border-radius: 10px;
+    padding: 2rem;
+    transition: background-color var(--_transition-time), color var(--_transition-time);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+
+    border: 1px solid;
+    border-color: var(--_border-colour);
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 50;
+}
+
+.package-inner {
+    transform: translateZ(10px);
+    transform-style: preserve-3d;
+    background-color: var(--inv-bg-colour);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    width: auto; height: calc(100% - 2rem);
+}
+
+.package-name {
+    transform: translateZ(50px);
+    color: var(--secondary-colour);
+}
+
+.package-price {
+    transform: translateZ(50px);
+    color: var(--tertiary-colour);
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.package-descriptor {
+    transform: translateZ(50px);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.package-descriptor ul, .package-descriptor li {
+    list-style-type: disc;
+    color: var(--inv-pri-colour);
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.card-buttons {
+    margin: 20px;
+}
+
+.card-buttons .link-button {
+    box-shadow: var(--secondary-colour) 4px 2px 10px 0px, var(--tertiary-colour) -4px -2px 10px 0px;
+    background-color: var(--inv-pri-colour);
+}
+
+.card-buttons .link-button:hover {
+    box-shadow: var(--tertiary-colour) 4px 2px 10px 0px, var(--secondary-colour) -4px -2px 10px 0px;
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+    cursor: pointer;
+}
+
+.card-buttons .link-button > a {
+    font-style: normal;
+}
+
+.card-buttons .link-button a:hover {
+    color: var(--primary-colour);
+}
+
+/* Mobile view */
+@media (max-width: 425px) {
+    #packages {
+        height: 100dvh;
+    }
+
+    .body-container > p {
+        margin: 1rem auto;
+        font-size: var(--step-1);
+    }
+
+    .package-card {
+        width: auto;
+        min-width: unset;
+        padding: 0; margin: 10px;
+    }
+
+    .package-container {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .package-inner {
+        padding: 10px; margin: 10px;
+    }
+}
+
+/* Tablet/medium displays */
+@media (min-width: 426px) and (max-width: 810px) {
+    #packages {
+        min-height: 100dvh;
+        margin-bottom: 25rem;
+    }
+
+    .body-container > p {
+        width: 80vw;
+        margin: 1rem auto;
+        font-size: var(--step-1);
+    }
+
+    .package-container {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .package-inner {
+        padding: 10px;
+        width: auto;
+    }
+
+}
+
+/* Laptops */
+@media (min-width: 811px) and (max-width: 1280px) {
+    #packages {
+        min-height: 100vh;
+        margin-bottom: 20rem;
+    }
+
+    .package-container {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .package-name {
+        font-size: var(--step-3);
+    }
+
+    .package-price {
+        font-size: var(--step-1);
+    }
+}
+
+/* Large Displays */
+@media (min-width: 1281px) {
+    #packages {
+        min-height: 100vh;
+    }
+
+    .package-name {
+        font-size: var(--step-3);
+    }
+
+    .package-price {
+        font-size: var(--step-1);
+    }
+
+}

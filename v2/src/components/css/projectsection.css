@@ -57,7 +57,7 @@
     }
 
     .sitecard-descriptor, .testimonial-text {
-        text-align: justify;
+        text-align: left;
         transition: color var(--_transition-time) ease-in-out;
     }
 

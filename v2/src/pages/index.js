@@ -10,11 +10,12 @@ import { faFacebook, faXTwitter, faInstagram, faYoutube } from '@fortawesome/fre
 import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
 
 // components
-import { SEO } from '../components/seo'
+import { SearchEngineOptimisation } from '../components/seo'
 const AboutSection = React.lazy(() => import('../components/aboutsection'));
 const ProjectSection = React.lazy(() => import( '../components/projectsection'));
 const ContactSection = React.lazy(() => import( '../components/contactsection'));
 const TestimonialSection = React.lazy(() => import( '../components/testimonialsection'));
+const PackageSection = React.lazy(() => import( '../components/packagesection'));
 
 const IndexPage = () => {
     //Handle the light/dark mode switching
@@ -207,7 +208,7 @@ const IndexPage = () => {
                         <div className="control-button"><FontAwesomeIcon icon={faArrowDown} /></div>
                     </div>
                 </div>
-                <div className='nav-container' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}
+                <div className='nav-container' onMouseEnter={toggleMenu} onMouseLeave={toggleMenu} aria-label='Toggle Menu'
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key ===' ') {
                                 toggleMenu();
@@ -222,6 +223,7 @@ const IndexPage = () => {
                             <ScrollLink to="about" smooth='easeInOutCubic' duration={1000}><li>About</li></ScrollLink>
                             <ScrollLink to="projects" smooth='easeInOutCubic' duration={1000}><li>Projects</li></ScrollLink>
                             <ScrollLink to="testimonials" smooth='easeInOutCubic' duration={1000}><li>Testimonials</li></ScrollLink>
+                            <ScrollLink to="packages" smooth='easeInOutCubic' duration={1000}><li>Packages</li></ScrollLink>
                             <ScrollLink to="contact" smooth='easeInOutCubic' duration={1000}><li>Contact</li></ScrollLink>
                         </ul>
                     </nav>
@@ -246,6 +248,7 @@ const IndexPage = () => {
                     <AboutSection darkMode={darkMode} />
                     <ProjectSection projects={projects} background={projectsBGImage} />
                     <TestimonialSection />
+                    <PackageSection darkMode={darkMode}/>
                     <ContactSection />
                 </Suspense>
             </main>
@@ -268,5 +271,5 @@ const IndexPage = () => {
 export default IndexPage;
 
 export const Head = () => {
-    <SEO />
+    <SearchEngineOptimisation />
 }
