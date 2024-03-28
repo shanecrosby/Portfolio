@@ -3,7 +3,7 @@ import React from 'react';
 import BlockContent from '@sanity/block-content-to-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
-import { Link as ScrollLink, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 const PackageCardComponent = ({ webpackage }) => {
 
