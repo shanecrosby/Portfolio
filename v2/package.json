@@ -15,11 +15,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
-  "overrides": {
-    "babel-plugin-lodash": {
-      "@babel/types": "~7.20.0"
-    }
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -27,7 +22,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "axios": "^=1.6.1",
-    "gatsby": "^5.12.11",
+    "gatsby": "^5.13.3",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.12.3",
@@ -35,7 +30,7 @@
     "gatsby-plugin-recaptcha": "^1.0.5",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-source-filesystem": "^5.12.1",
-    "gatsby-source-sanity": "^7.9.1",
+    "gatsby-source-sanity": "^7.6.0",
     "gatsby-transformer-sharp": "^5.12.3",
     "gbimage-bridge": "^0.2.2",
     "gh-pages": "^6.0.0",
